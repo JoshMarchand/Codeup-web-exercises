@@ -1,4 +1,87 @@
-.fancy-header {
-    color: purple;
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: cadetblue;
     text-decoration: underline;
+}
+h2{
+
+    color: cadetblue;
+    text-decoration: underline;
+    font-size: 2em;
+
+}
+
+
+#sub {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+body {
+    background: aqua;
+    background-image: url("../img/spikes.png");
+    background-attachment: auto;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    color: lightslategrey;
+}
+
+
+
+ul>li {
+    list-style: circle;
+    font-size: 1.4em;
+}
+
+ol {
+    font-size: 1.4em;
+}
+
+body {
+    text-align: center;
+}
+body>div>ul, body>div>ol {
+    display: inline-block;
+}
+
+
+th, td {
+    padding: 30px;
+    width: 10%;
+    font-size: 1.4em;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.lists {
+    border: solid;
+    width: 90%;
+    display: inline-block;
+}
+
+a:link {
+    color: darkblue;
+}
+
+a:visited {
+    color: blueviolet;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: darkorange;
 }
