@@ -19,7 +19,7 @@ body, html {
     --text-error: #8D2C44;
     height: 40px;
     border: solid 1px darkgray;
-    margin: .5em auto;
+    margin: .5em;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 5px;
