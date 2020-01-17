@@ -27,6 +27,10 @@ body {
     color: lightslategrey;
 }
 
+div {
+
+}
+
 
 
 ul>li {
@@ -66,9 +70,16 @@ table, th, td {
 
 .lists {
     border: solid;
-    width: 90%;
+    width: 65%;
     display: inline-block;
+    background-image: url("../img/img9.jpg");
+    color: black;
 }
+
+.lists h2 {
+    color: black;
+}
+
 
 a:link {
     color: darkblue;
