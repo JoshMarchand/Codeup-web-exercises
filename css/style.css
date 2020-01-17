@@ -27,11 +27,6 @@ body {
     color: lightslategrey;
 }
 
-div {
-
-}
-
-
 
 ul>li {
     list-style: circle;
@@ -52,7 +47,7 @@ body>div>ul, body>div>ol {
 
 th, td {
     padding: 30px;
-    width: 10%;
+    width: 26%;
     font-size: 1.4em;
 }
 
@@ -66,14 +61,16 @@ table, th, td {
     border: 1px solid black;
     text-align: center;
     border-collapse: collapse;
+    margin: auto;
 }
 
 .lists {
     border: solid;
-    width: 65%;
+    width: 80%;
     display: inline-block;
     background-image: url("../img/img9.jpg");
     color: black;
+
 }
 
 .lists h2 {
