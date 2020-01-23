@@ -1,7 +1,53 @@
 nav * {
     box-sizing: border-box;
+
+}
+
+body {
+    margin: 0 0 0 0;
+}
+
+nav {
+    width: 100%;
 }
 
 a:hover {
     color: blue;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1em;
+    color: black;
+    font-family: 'Work Sans', sans-serif;
+    align-content: center;
+}
+
+#logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: .2em 0;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    background-color: #c1c1c1;
+    margin: 0 0 0 0;
+
+}
+
+nav {
+
+
+}
+
+.anchor1 {
+}
+
+.anchor2 {
+}
+
+.anchor3 {
 }
