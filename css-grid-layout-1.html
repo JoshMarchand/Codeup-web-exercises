@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body {
+        display: grid;
+        grid-template-areas:
+                "header header header"
+                "nav article ads"
+                "nav footer footer";
+        grid-template-rows: 80px 1fr 70px;
+        grid-template-columns: 20% 1fr 15%;
+        grid-gap: 10px;
+        height: 100vh;
+        margin: 0;
+    }
+    header, footer, article, nav, div {
+        padding: 1.2em;
+        background: gold;
+    }
+    header {
+            grid-area: header;
+        }
+    footer {
+            grid-area: footer;
+        }
+    article {
+            grid-area: article;
+        }
+    nav {
+            grid-area: nav;
+        }
+    div {
+            grid-area: ads;
+        }
+    </style>
+</head>
+<body>
+<header>header</header>
+<footer>footer</footer>
+<article>article</article>
+<nav>nav</nav>
+<div>ads</div>
+
+</body>
+</html>

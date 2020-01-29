@@ -1,0 +1,23 @@
+.jumbotron {
+
+}
+
+h1 {
+
+}
+
+.jumbotron {
+    background-image: url("../img/pizza.png");
+}
+
+#card1 {
+    width: 100%;
+    background-color: #157FFB;
+}
+#card2 {
+    width: 100%;
+}
+#card3 {
+    width: 100%;
+    background-color: #F7F7F7;
+}

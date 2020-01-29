@@ -1,0 +1,105 @@
+body {
+    display: grid;
+    grid-template-rows: 5% repeat(3, 1fr) repeat(2, 10%) 5%;
+    grid-template-columns: 15% repeat(3, 1fr);
+    height: 100vh;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+h5 {
+    color: #459388;
+    font-weight: normal;
+    margin: 0;
+    margin: 10px 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#grid > div:nth-child(2) a {
+    color: black;
+    padding: 10px 0;
+}
+
+a:hover {
+    background-color: white;
+    color: black;
+}
+
+#grid > div {
+    color: black;
+    padding: 10px;
+
+}
+
+#footer {
+    display: flex;
+    align-self: center;
+}
+#grid > div:nth-child(1) a{
+    height: 19px;
+    width: 65px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+#grid > div:nth-child(1) {
+    background-color: black;
+    grid-column: span 4;
+    padding: 0;
+}
+#grid > div:nth-child(2) {
+    background-color: #F0F0F0;
+    grid-row: span 6;
+    flex-direction: column;
+}
+#grid > div:nth-child(3) {
+    grid-column: span 2;
+
+}
+#grid > div:nth-child(4) {
+    grid-column: span 2;
+}
+#grid > div:nth-child(5) {
+    grid-column: span 2;
+}
+#grid > div:nth-child(6) {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+}
+#grid > div:nth-child(7) {
+    background-color: #666666;
+    grid-column: span 3;
+    color: white;
+}
+#grid > div:nth-child(8) {
+    background-color: #333333;
+    grid-column: span 3;
+    color: white;
+}
+
+div {
+    display: flex;
+
+}
+
+#grid > div:nth-child(6)>a {
+    grid-column: span 3;
+    color: black;
+
+}
+
+#grid > div:nth-child(5), #grid > div:nth-child(4), #grid > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
