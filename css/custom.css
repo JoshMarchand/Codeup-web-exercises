@@ -10,12 +10,20 @@ h1 {
     background-image: url("../img/pizza.png");
 }
 
+#opacit {
+    background-color: white;
+    opacity: 0.7;
+    text-align: center;
+}
+
 #card1 {
     width: 100%;
     background-color: #157FFB;
+    color: white;
 }
 #card2 {
     width: 100%;
+    border: lightgray solid .5px;
 }
 #card3 {
     width: 100%;

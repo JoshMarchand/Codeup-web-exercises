@@ -51,6 +51,12 @@
        return typeof thing
     }
 
+    // Write a function that returns true or false based off whether the number passed, squared, is evenly divisible by 3.
+
+    function squared (num) {
+        return (num * num) % 3 === 0;
+    }
+
     console.log(quotient(5, 7));
     console.log(helloWorld());
     console.log(helloName('Josh'));
@@ -59,6 +65,9 @@
     console.log(seven());
     console.log(firstItem(['dog', 'cat']));
     console.log(determineType(3));
+    console.log(squared(5));
+    console.log(squared(4));
+    console.log(squared(3));
 </script>
 </body>
 </html>
