@@ -57,6 +57,11 @@
         return (num * num) % 3 === 0;
     }
 
+    function isString (input) {
+      var type = typeof input;
+       return type === 'string';
+    }
+
     console.log(quotient(5, 7));
     console.log(helloWorld());
     console.log(helloName('Josh'));
@@ -68,6 +73,9 @@
     console.log(squared(5));
     console.log(squared(4));
     console.log(squared(3));
+    console.log(isString('blue'));
+    console.log(isString(45));
+
 </script>
 </body>
 </html>
