@@ -16,6 +16,32 @@
  * Can you refactor your code to use functions?
  */
 
+function getNum() {
+    if (confirm('Would you like to enter a number?')) {
+        var number = prompt('Enter a number.');
+
+        if (!isNaN(number)) {
+            if (number % 2 === 0) {
+                alert('Even');
+            }
+            if (number % 2 !== 0) {
+                alert('odd');
+            }
+            if (number >= 0) {
+                alert('positive');
+            }
+            if (number < 0) {
+                alert('negative');
+            }
+        } else {
+            alert('not a number');
+        }
+    }
+}
+
+// console.log(getNum());
+
+
 /* ########################################################################## */
 
 /**
@@ -43,6 +69,30 @@
 //                  will contain a different color every time the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+
+function analyzeColor(color) {
+    if (color === 'red'){
+        alert('red');
+    } else if (color === 'orange'){
+        alert('orange');
+    } else if (color === 'yellow'){
+        alert('yellow');
+    } else if (color === 'green'){
+        alert('green');
+    } else if (color === 'blue'){
+        alert('blue');
+    } else if (color === 'indigo'){
+        alert('indigo');
+    } else if (color === 'violet') {
+        alert('violet');
+    };
+
+}
+
+// analyzeColor(randomColor);
+
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
