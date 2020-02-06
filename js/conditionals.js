@@ -72,21 +72,21 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 
 function analyzeColor(color) {
-    if (color === 'red'){
+    if (color === 'red') {
         alert('red');
-    } else if (color === 'orange'){
+    } else if (color === 'orange') {
         alert('orange');
-    } else if (color === 'yellow'){
+    } else if (color === 'yellow') {
         alert('yellow');
-    } else if (color === 'green'){
+    } else if (color === 'green') {
         alert('green');
-    } else if (color === 'blue'){
+    } else if (color === 'blue') {
         alert('blue');
-    } else if (color === 'indigo'){
+    } else if (color === 'indigo') {
         alert('indigo');
     } else if (color === 'violet') {
         alert('violet');
-    };
+    }
 
 }
 
@@ -98,11 +98,62 @@ function analyzeColor(color) {
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+// function analyzeColor(color) {
+//     if (color === 'red'){
+//         alert('red');
+//     } else if (color === 'orange'){
+//         alert('orange');
+//     } else if (color === 'yellow'){
+//         alert('yellow');
+//     } else if (color === 'green'){
+//         alert('green');
+//     } else if (color === 'blue'){
+//         alert('blue');
+//     } else if (color === 'indigo'){
+//         alert('indigo');
+//     } else if (color === 'violet') {
+//         alert('violet');
+//     };
+//
+// }
+//
+// // analyzeColor(randomColor);
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+
+
+
+
+function analyzeColor(color) {
+    switch (color) {
+        case 'red':
+            alert('red');
+            break;
+        case 'orange':
+            alert('orange');
+            break;
+        case 'yellow':
+            alert('yellow');
+            break;
+        case 'green':
+            alert('green');
+            break;
+        case 'blue':
+            alert('blue');
+            break;
+        case 'indigo':
+            alert('indigo');
+            break;
+        case 'violet':
+            alert('violet');
+            break;
+    }
+}
+
 
 /**
  * TODO:
@@ -110,6 +161,8 @@ function analyzeColor(color) {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+// analyzeColor(prompt('Color?'));
 
 /* ########################################################################## */
 
@@ -133,6 +186,25 @@ function analyzeColor(color) {
  * return value.
  */
 
+function calculateTotal(num, num2) {
+    switch (num) {
+        case 1:
+            return num2 - (num2 * .10);
+        case 2:
+            return num2 - (num2 * .25);
+        case 3:
+            return num2 - (num2 * .35);
+        case 4:
+            return num2 - (num2 * .50);
+        case 5:
+            return 0;
+        case 6:
+            return num;
+    }
+}
+
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -141,4 +213,7 @@ function analyzeColor(color) {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var x = parseFloat(prompt('Number?'));
+console.log(calculateTotal(luckyNumber, x));
