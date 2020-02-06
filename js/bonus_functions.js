@@ -171,12 +171,12 @@ function invertSign(number) {
 
 function degreesToRadians(number) {
     var pi = Math.PI;
-    return degrees * (pi/180);
+    return degrees * (pi / 180);
 }
 
 function radiansToDegrees(number) {
     var pi = Math.PI;
-    return radians * (180/pi);
+    return radians * (180 / pi);
 }
 
 function isBlank(input) {
@@ -199,7 +199,6 @@ function not(input) {
     return !input
 }
 
-
 function notNot(input) {
     return !!input;
 }
@@ -221,5 +220,92 @@ function absoluteValue(number) {
 }
 
 function rollDice(sides) {
-    return Math.floor( Math.random() * sides ) +1;
+    return Math.floor( Math.random() * 6 ) +1;
+}
+
+function returnTwo() {
+    return 2;
+}
+
+function sayHowdy() {
+    console.log('Howdy!');
+}
+
+function returnName() {
+    return 'Josh';
+}
+
+function addThree(number) {
+    return number + 3;
+}
+
+function sayString(string) {
+    return string;
+}
+
+function identity(input) {
+    return input;
+}
+
+function getRandomNumber(min, max) {
+    return Math.floor( Math.random() * max ) + min;
+}
+
+function first(input) {
+    var x = input;
+    return x.charAt(0);
+}
+
+function last(input) {
+    var x = input;
+    length = x.length;
+    return x.charAt(length - 1);
+}2
+
+function rest(input) {
+
+}
+
+function reverse(input) {
+
+}
+
+function isNumeric(input) {
+
+}
+
+function count(input) {
+
+}
+
+function add(a, b) {
+
+}
+
+function subtract(a, b) {
+
+}
+
+function multiply(a, b) {
+
+}
+
+function divide(numerator, denominator) {
+
+}
+
+function remainder(number, divisor) {
+
+}
+
+function square(a) {
+
+}
+
+function sumOfSquares(a, b) {
+
+}
+
+function doMath(operator, a, b) {
+
 }
