@@ -260,7 +260,7 @@ function last(input) {
     var x = input;
     length = x.length;
     return x.charAt(length - 1);
-}2
+}
 
 function rest(input) {
 

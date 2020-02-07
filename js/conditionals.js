@@ -16,11 +16,33 @@
  * Can you refactor your code to use functions?
  */
 
+// function getNum() {
+//     if (confirm('Would you like to enter a number?')) {
+//         var number = prompt('Enter a number.');
+//
+//         if (!isNaN(number)) {
+//             if (number % 2 === 0) {
+//                 alert('Even');
+//             }
+//             if (number % 2 !== 0) {
+//                 alert('odd');
+//             }
+//             if (number >= 0) {
+//                 alert('positive');
+//             }
+//             if (number < 0) {
+//                 alert('negative');
+//             }
+//         } else {
+//             alert('not a number');
+//         }
+//     }
+// }
+
 function getNum() {
     if (confirm('Would you like to enter a number?')) {
-        var number = prompt('Enter a number.');
-
-        if (!isNaN(number)) {
+        var number;
+        if (!isNaN(number = parseFloat(prompt('Enter a number.')))) {
             if (number % 2 === 0) {
                 alert('Even');
             }
@@ -38,6 +60,8 @@ function getNum() {
         }
     }
 }
+
+console.log(getNum());
 
 // console.log(getNum());
 
@@ -204,7 +228,6 @@ function calculateTotal(num, num2) {
 }
 
 
-
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -215,5 +238,5 @@ function calculateTotal(num, num2) {
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
 
-var x = parseFloat(prompt('Number?'));
-console.log(calculateTotal(luckyNumber, x));
+// var x = parseFloat(prompt('Number?'));
+// console.log(calculateTotal(luckyNumber, x));
