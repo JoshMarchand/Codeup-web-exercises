@@ -40,6 +40,7 @@
     });
     listLoopString += '</ul>';
 
+    console.log(listLoopString);
 
 
 })();

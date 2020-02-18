@@ -69,6 +69,8 @@
     //     }
     // });
 
+    //toFixed(2)
+
     shoppers.forEach(function (element, index) {
         if (element.amount > 200){
             console.log(element.amount + ': ' + element.name + ' needs to pay ' + element.amount * .88);
