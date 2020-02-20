@@ -14,7 +14,7 @@
 mapboxgl.accessToken = mapboxToken;
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    style: 'mapbox://styles/mapbox/streets-v11',
     zoom: 5,
     center: [-98.4916, 29.4252]
 });
