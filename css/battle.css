@@ -1,7 +1,10 @@
 #button1 {
     height: 50px;
     width: 100px;
+}
 
+.boom {
+    cursor:url('../img/New Piskel-4.gif'), auto;
 }
 
 #strike {
@@ -21,7 +24,6 @@
 
 #buttonDiv {
     height: 90vh;
-
 }
 
 #bigDragon {

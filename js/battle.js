@@ -6,6 +6,9 @@ var snd = new Audio("sound/rage_of_blades-Blaga_Saun-1763516257.mp3");
 var roar = new Audio("sound/Monster Growl-SoundBible.com-344645592.mp3");
 var maintrack = new Audio("sound/Chase - AShamaluevMusic.mp3");
 var dragonHP = 5;
+var bodyCurs = document.getElementsByTagName('body');
+
+console.log(bodyCurs);
 
 var rect = document.body.getBoundingClientRect();
 console.log(rect.top, rect.right, rect.bottom, rect.left);
@@ -21,20 +24,26 @@ function getOffset(el) {
 
 
 
+
 console.log(theButton);
 
 
 
 document.addEventListener('keydown', (event) => {
 
-
+    console.log(event);
 
     if (event.key == ' ') {
+        setCurs();
         pizza();
+
     }
 });
 
 
+var setCurs = function  () {
+    bodyCurs.setAttribute("class", "");
+}
 
 
 var pizza = function (event) {
