@@ -1,0 +1,48 @@
+#button1 {
+    height: 50px;
+    width: 100px;
+
+}
+
+#strike {
+    z-index: 2;
+    position: absolute;
+    top: 350px;
+}
+
+#bigDragon {
+    position: absolute;
+    z-index: 1;
+}
+
+#imagesC {
+    position: relative;
+}
+
+#buttonDiv {
+    height: 90vh;
+
+}
+
+#bigDragon {
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    14%  {left:100px; top:-25px;}
+    28%  {left:200px; top:0px;}
+    37%  {left:100px; top:25px;}
+    46% {left:0px; top:0px;}
+    60%  {left:-100px; top:-25px;}
+    74%  {left:-200px; top:0px;}
+    88%  {left:-100px; top:25px;}
+    100%  {left:0px; top:0px;}
+}
+
+.pauseAni {
+    animation-play-state: paused;
+}
