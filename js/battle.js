@@ -7,11 +7,10 @@ var roar = new Audio("sound/Monster Growl-SoundBible.com-344645592.mp3");
 var maintrack = new Audio("sound/Chase - AShamaluevMusic.mp3");
 var dragonHP = 5;
 var bodyCurs = document.getElementsByTagName('body');
-
-console.log(bodyCurs);
-
 var rect = document.body.getBoundingClientRect();
+var yourHP = 6;
 console.log(rect.top, rect.right, rect.bottom, rect.left);
+document.getElementById('bigDragon').setAttribute('draggable', false);
 
 function getOffset(el) {
     const rect = el.getBoundingClientRect();
@@ -23,28 +22,30 @@ function getOffset(el) {
 
 
 
-
-
-console.log(theButton);
-
-
-
 document.addEventListener('keydown', (event) => {
 
     console.log(event);
 
     if (event.key == ' ') {
-        setCurs();
         pizza();
+    }
 
+    if (event.key == 'c') {
+        bodyCurs[0].setAttribute("class", "boom");
+    }
+
+    if (event.key == 'v') {
+    }
+
+    if (event.key == 'b') {
+    }
+
+    if (event.key == 'n') {
+    }
+
+    if (event.key == 'm') {
     }
 });
-
-
-var setCurs = function  () {
-    bodyCurs.setAttribute("class", "");
-}
-
 
 var pizza = function (event) {
 
@@ -57,36 +58,25 @@ var pizza = function (event) {
 
     theDragon.setAttribute("class", "pauseAni");
 
-
     var rect = document.getElementById('bigDragon').getBoundingClientRect();
     console.log(rect.top, rect.right, rect.bottom, rect.left);
 
     var avatarPos = document.body.getBoundingClientRect();
     console.log(avatarPos.top, avatarPos.right, avatarPos.bottom, avatarPos.left);
 
-
-
-
-
     dragonHP--;
 
-
-
-
-    // TODO: This function needs to be called once every second
     function dragonHit() {
 
-        if (hitTimer == 4){
+        if (hitTimer == 4) {
             roar.play();
         }
 
-        if (hitTimer == 3){
+        if (hitTimer == 3) {
             theStrike.setAttribute("src", "");
         }
 
         hitTimer--;
-
-
 
         if (hitTimer == 0) {
             if (dragonHP == 4) {
@@ -111,14 +101,8 @@ var pizza = function (event) {
             console.log(hitTimer);
             clearInterval(dragonHitVar);
         }
-
-        console.log(hitTimer);
-
-
     }
-
     var dragonHitVar = setInterval(dragonHit, 1000);
-
 }
 
 // register the listener to handle clicks on btn1

@@ -13,9 +13,32 @@
     top: 350px;
 }
 
-#bigDragon {
+
+#fireball {
+    height: 100px;
+    width: 100px;
+    animation-timing-function: linear;
     position: absolute;
-    z-index: 1;
+    animation-name: fireballA;
+    animation-duration: 3s;
+    z-index: 5;
+    user-select: none;
+}
+
+#fireball2 {
+    height: 100px;
+    width: 100px;
+    animation-timing-function: linear;
+    position: absolute;
+    animation-name: fireballB;
+    animation-duration: 3s;
+    z-index: 5;
+    user-select: none;
+}
+
+.fireballhide {
+    display: none;
+    animation-play-state: paused;
 }
 
 #imagesC {
@@ -31,6 +54,8 @@
     animation-name: example;
     animation-duration: 4s;
     animation-iteration-count: infinite;
+    user-select: none;
+    z-index: 1;
 }
 
 @keyframes example {
@@ -43,6 +68,18 @@
     74%  {left:-200px; top:0px;}
     88%  {left:-100px; top:25px;}
     100%  {left:0px; top:0px;}
+ }
+
+@keyframes fireballA {
+    0%   {left:10em; top:5em;}
+
+    100%  {left:50em; top:80em;}
+}
+
+@keyframes fireballB {
+    0%   {left:60em; top:5em;}
+
+    100%  {left:110em; top:80em;}
 }
 
 .pauseAni {
