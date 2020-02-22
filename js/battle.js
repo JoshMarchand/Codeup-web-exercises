@@ -1,4 +1,4 @@
-var theButton = document.getElementById("button1");
+
 var theDragon = document.getElementById("bigDragon");
 var theStrike = document.getElementById("strike");
 var hitTimer = 6;
@@ -105,6 +105,4 @@ var pizza = function (event) {
     var dragonHitVar = setInterval(dragonHit, 1000);
 }
 
-// register the listener to handle clicks on btn1
-document.getElementById('button1').addEventListener('click', pizza, false);
 

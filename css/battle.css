@@ -1,6 +1,5 @@
-#button1 {
-    height: 50px;
-    width: 100px;
+body {
+    box-sizing: border-box;
 }
 
 .boom {
@@ -11,10 +10,18 @@
     z-index: 2;
     position: absolute;
     top: 350px;
+
+}
+
+#bob {
+    align-self: flex-end;
+    position: absolute;
+    z-index: 4;
 }
 
 
 #fireball {
+    display: inline;
     height: 100px;
     width: 100px;
     animation-timing-function: linear;
@@ -26,11 +33,24 @@
 }
 
 #fireball2 {
+    display: inline;
     height: 100px;
     width: 100px;
     animation-timing-function: linear;
     position: absolute;
     animation-name: fireballB;
+    animation-duration: 3s;
+    z-index: 5;
+    user-select: none;
+}
+
+#fireball3 {
+    display: inline;
+    height: 100px;
+    width: 100px;
+    animation-timing-function: linear;
+    position: absolute;
+    animation-name: fireballC;
     animation-duration: 3s;
     z-index: 5;
     user-select: none;
@@ -46,7 +66,7 @@
 }
 
 #buttonDiv {
-    height: 90vh;
+    height: 100vh;
 }
 
 #bigDragon {
@@ -71,16 +91,36 @@
  }
 
 @keyframes fireballA {
-    0%   {left:10em; top:5em;}
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:10em; top:-10em;}
 
     100%  {left:50em; top:80em;}
 }
 
 @keyframes fireballB {
-    0%   {left:60em; top:5em;}
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:110em; top:-10em;}
 
-    100%  {left:110em; top:80em;}
+    100%  {left:60em; top:80em;}
 }
+
+@keyframes fireballC {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:50em; top:-10em;}
+
+    100%  {left:60em; top:80em;}
+}
+
+/*@keyframes fireballC {*/
+/*    !*from { transform: scaleX(.5) scaleY(.5);}*!*/
+/*    !*to   { transform: scaleX(1.5) scaleY(1.5);}*!*/
+/*    0%   {left:50em; top:-10em;}*/
+
+/*    100%  {left:60em; top:80em;}*/
+/*}*/
 
 .pauseAni {
     animation-play-state: paused;

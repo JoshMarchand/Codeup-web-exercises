@@ -7,11 +7,11 @@
 
     var landed2 = 0;
 
-    document.getElementById('fireball2').setAttribute('draggable', false);
+    document.getElementById('fireball3').setAttribute('draggable', false);
 
 
     var fireballTimer2 = 5;
-    var theFire2 = document.getElementById("fireball2");
+    var theFire2 = document.getElementById("fireball3");
 
 
     console.log('js3 first');
@@ -25,9 +25,9 @@
 
     var pizzaFire2 = function (event) {
         var landed2 = 1;
-        document.getElementById('fireball2').addEventListener('click', hideDB2, false);
+        document.getElementById('fireball3').addEventListener('click', hideDB2, false);
 
-        theFire2.setAttribute("class", "fireball2");
+        theFire2.setAttribute("class", "fireball3");
         var fireHitVar2 = setInterval(dragonHit2, 500);
 
         function dragonHit2() {
@@ -52,7 +52,7 @@
         }
 
         function hideDB2() {
-            document.getElementById('fireball2').setAttribute('class', 'fireballhide');
+            document.getElementById('fireball3').setAttribute('class', 'fireballhide');
             console.log('hide db success');
             landed2 = 0;
         }

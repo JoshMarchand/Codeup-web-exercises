@@ -13,15 +13,22 @@ var markerOptions = {
 
 var thaiVegan = new mapboxgl.Marker(markerOptions)
     .setLngLat([-98.4916, 29.4260])
+//     .setPopup(popup)
+// popup.addTo(map)
     .addTo(map);
 
 var tacoCabana = new mapboxgl.Marker(markerOptions)
     .setLngLat([-98.4896, 29.4268])
+//     .setPopup(popup)
+// popup.addTo(map)
     .addTo(map);
 
 var burgerKing = new mapboxgl.Marker(markerOptions)
     .setLngLat([-95.4916, 27.4260])
+//     .setPopup(popup)
+// popup.addTo(map)
     .addTo(map);
+
 
 var thaiPopup = new mapboxgl.Popup()
     .setHTML('<h1>Thai Vegan</h1>')

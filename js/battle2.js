@@ -4,7 +4,6 @@ document.getElementById('bigDragon').setAttribute('draggable', false);
 document.getElementById('fireball').setAttribute('draggable', false);
 var fireballTimer = 5;
 var landed = 0;
-var landed2 = 0;
 
 
 
@@ -59,6 +58,13 @@ function thisRandom (){
 
 
 }
+
+
+
+
+
+
+
 
 
 
