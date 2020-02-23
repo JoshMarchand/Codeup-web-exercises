@@ -123,7 +123,7 @@ var pizza = function (event) {
 
         if (hitTimer == 0) {
             if (dragonHP == 4) {
-                theDragon.setAttribute("src", "img/New Piskeldragon blast 1 clone.gif");
+                theDragon.setAttribute("src", "img/blast 1 final.gif");
             }
             if (dragonHP == 3) {
                 theDragon.setAttribute("src", "img/New Piskeldragon blast 2 clone.gif");

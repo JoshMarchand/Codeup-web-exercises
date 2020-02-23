@@ -31,7 +31,7 @@ body {
 }
 
 .dragonDiv {
-
+    left: 60em;
     height: 0em;
     width:0em;
 }
@@ -148,15 +148,65 @@ body {
 
 #bigDragon {
 
+     position: relative;
+     user-select: none;
+     z-index: 1;
+
+ }
+
+.bigDragonC1 {
+    top: -45px;
+    left: -150px;
+}
+
+.bigDragonC2 {
+     top: -45px;
+     left: -450px;
+ }
+
+.bigDragonC3 {
+    top: -45px;
+    left: 100px;
+}
+
+
+
+#bigDragonBlast {
+
+    top: -45px;
+    left: -150px;
+    animation: dragonBlast 4s ease-in-out;
     position: relative;
-    animation-name: example;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
     user-select: none;
-    z-index: 1;
-    animation-timing-function: ease-out;
+    z-index: 3;
 
 }
+
+#bigDragonBall {
+
+    top: -45px;
+    left: -150px;
+    animation: dragonBall 4s ease-in;
+    position: relative;
+    user-select: none;
+    z-index: 2;
+
+}
+
+/*#bigDragon2 {*/
+
+/*original bigdragon*/
+
+/*    position: relative;*/
+/*    animation-name: example;*/
+/*    animation-duration: 4s;*/
+/*    animation-iteration-count: infinite;*/
+/*    user-select: none;*/
+/*    z-index: 1;*/
+/*    animation-timing-function: ease-out;*/
+
+/*}*/
+
 
 @keyframes example {
     0%   {left:-20em; top:0em;}
@@ -246,13 +296,25 @@ body {
     100%  {left:-6em; top:20em;}
 }
 
-/*@keyframes fireballC {*/
-/*    !*from { transform: scaleX(.5) scaleY(.5);}*!*/
-/*    !*to   { transform: scaleX(1.5) scaleY(1.5);}*!*/
-/*    0%   {left:50em; top:-10em;}*/
+@keyframes dragonBlast {
+    from { transform: scaleX(.8) scaleY(.8);}
+    to   { transform: scaleX(.15) scaleY(.15);}
+    0%   { top: 40px;
+        left: -145px;}
 
-/*    100%  {left:60em; top:80em;}*/
-/*}*/
+    100%  { top: -80px;
+        left: -150px;}
+}
+
+@keyframes dragonBall {
+    from { transform: scaleX(-0) scaleY(-0);}
+    to   { transform: scaleX(1) scaleY(1);}
+    0%   { top: 10px;
+        left: -30px;}
+
+    100%  { top: 35px;
+        left: -30px;}
+}
 
 .pauseAni {
     animation-play-state: paused;
