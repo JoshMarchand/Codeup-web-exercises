@@ -1,4 +1,15 @@
+//
+// function onError(error) {
+//     console.log(`Error: ${error}`);
+// }
+//
+// var setting = browser.tabs.setZoom(0);
+// setting.then(null, onError);
 
+
+
+
+var yourPos = 0;
 var theDragon = document.getElementById("bigDragon");
 var theStrike = document.getElementById("strike");
 var hitTimer = 6;
@@ -7,6 +18,8 @@ var roar = new Audio("sound/Monster Growl-SoundBible.com-344645592.mp3");
 var maintrack = new Audio("sound/Chase - AShamaluevMusic.mp3");
 var dragonHP = 5;
 var bodyCurs = document.getElementsByTagName('body');
+var meBob = document.getElementById('bob');
+console.log(typeof meBob);
 var rect = document.body.getBoundingClientRect();
 var yourHP = 6;
 console.log(rect.top, rect.right, rect.bottom, rect.left);
@@ -31,10 +44,40 @@ document.addEventListener('keydown', (event) => {
     }
 
     if (event.key == 'c') {
-        bodyCurs[0].setAttribute("class", "boom");
+        // bodyCurs[0].setAttribute("class", "boom");
+        // meBob.style['animation-name'] = swordBob2;
+
+
+    yourPos = 1;
+    // meBob.setAttribute('class', 'bob3');
+    meBob.setAttribute('class', 'bob2');
+    document.addEventListener('keyup', changeAgain);
+
+    function changeAgain (){
+        meBob.setAttribute('class', 'bob');
+        document.removeEventListener('keyup', changeAgain);
+        yourPos = 0;
+
+    }
+
+        console.log('meBob work');
+
+
+
     }
 
     if (event.key == 'v') {
+        meBob.setAttribute('class', 'bob3');
+        document.addEventListener('keyup', changeAgain2);
+        yourPos = 2;
+
+
+        function changeAgain2 (){
+            meBob.setAttribute('class', 'bob');
+            document.removeEventListener('keyup', changeAgain2);
+            yourPos = 0;
+
+        }
     }
 
     if (event.key == 'b') {

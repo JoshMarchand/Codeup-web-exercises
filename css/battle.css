@@ -1,5 +1,17 @@
+
+
+/*body, html {*/
+/*    box-sizing: border-box;*/
+/*    height: 100%;*/
+/*}*/
+
 body {
-    box-sizing: border-box;
+    /*max-height: 80%;*/
+}
+
+#lowDiv {
+    /*height: 0em;*/
+    /*width: 0em;*/
 }
 
 .boom {
@@ -13,19 +25,74 @@ body {
 
 }
 
-#bob {
-    align-self: flex-end;
-    position: absolute;
+.fireballDiv {
+    height: 0em;
+    width: 0em;
+}
+
+.dragonDiv {
+
+    height: 0em;
+    width:0em;
+}
+
+.swordDiv {
+    height: 0em;
+    width: 0em;
+}
+
+#bodyDiv {
+    /*object-fit: cover;*/
+    /*max-height: 100%;*/
+    /*width: 100%;*/
+}
+
+.bob {
+    /*align-self: flex-end;*/
+
     z-index: 4;
+    position: relative;
+    animation-name: swordBob;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    user-select: none;
+    animation-timing-function: linear;
+
+}
+
+.bob2 {
+    /*align-self: flex-end;*/
+
+    z-index: 4;
+    position: relative;
+    animation-name: swordBob2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    user-select: none;
+    animation-timing-function: linear;
+
+}
+
+.bob3 {
+    /*align-self: flex-end;*/
+
+
+    z-index: 4;
+    position: relative;
+    animation-name: swordBob3;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    user-select: none;
+    animation-timing-function: linear;
+
 }
 
 
 #fireball {
-    display: inline;
     height: 100px;
     width: 100px;
     animation-timing-function: linear;
-    position: absolute;
+    position: relative;
     animation-name: fireballA;
     animation-duration: 3s;
     z-index: 5;
@@ -33,11 +100,10 @@ body {
 }
 
 #fireball2 {
-    display: inline;
     height: 100px;
     width: 100px;
     animation-timing-function: linear;
-    position: absolute;
+    position: relative;
     animation-name: fireballB;
     animation-duration: 3s;
     z-index: 5;
@@ -45,11 +111,10 @@ body {
 }
 
 #fireball3 {
-    display: inline;
     height: 100px;
     width: 100px;
     animation-timing-function: linear;
-    position: absolute;
+    position: relative;
     animation-name: fireballC;
     animation-duration: 3s;
     z-index: 5;
@@ -61,57 +126,124 @@ body {
     animation-play-state: paused;
 }
 
+
 #imagesC {
-    position: relative;
+    /*position: relative;*/
+
+    display: flex;
+    justify-content: center;
+
 }
 
-#buttonDiv {
-    height: 100vh;
+/*#buttonDiv {*/
+/*    height: 100vh;*/
+/*}*/
+
+#innerDiv {
+    width: 80%;
+    position: relative;
+    /*display: flex;*/
+    /*justify-content: center;*/
 }
 
 #bigDragon {
+
     position: relative;
     animation-name: example;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     user-select: none;
     z-index: 1;
+    animation-timing-function: ease-out;
+
 }
 
 @keyframes example {
-    0%   {left:0px; top:0px;}
-    14%  {left:100px; top:-25px;}
-    28%  {left:200px; top:0px;}
-    37%  {left:100px; top:25px;}
-    46% {left:0px; top:0px;}
-    60%  {left:-100px; top:-25px;}
-    74%  {left:-200px; top:0px;}
-    88%  {left:-100px; top:25px;}
-    100%  {left:0px; top:0px;}
+    0%   {left:-20em; top:0em;}
+    14%  {left:-10em; top:-4em;}
+    28%  {left:0em; top:0em;}
+    37%  {left:-10em; top:4em;}
+    46% {left:-20em; top:0em;}
+    60%  {left:-30em; top:-4em;}
+    74%  {left:-40em; top:0em;}
+    88%  {left:-30em; top:4em;}
+    100%  {left:-20em; top:0em;}
  }
 
 @keyframes fireballA {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:10em; top:-10em;}
+    0%   {left:0em; top:-10em;}
 
-    100%  {left:50em; top:80em;}
+    100%  {left:0em; top:80em;}
 }
 
 @keyframes fireballB {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:110em; top:-10em;}
+    0%   {left:0em; top:-10em;}
 
-    100%  {left:60em; top:80em;}
+    100%  {left:0em; bottom:80em;}
 }
 
 @keyframes fireballC {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:50em; top:-10em;}
+    0%   {left:0em; top:-10em;}
 
     100%  {left:60em; top:80em;}
+}
+
+@keyframes swordBob {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:0em; top:20em;}
+    14%  {left:2em; top:23em;}
+    28%  {left:4em; top:20em;}
+    37%  {left:2em; top:18em;}
+    46% {left:0em; top:20em;}
+    60%  {left:-2em; top:23em;}
+    74%  {left:-4em; top:20em;}
+    88%  {left:-2em; top:18em;}
+    100%  {left:0em; top:20em;}
+}
+
+@keyframes swordBob3 {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:6em; top:20em;}
+    14%  {left:8em; top:23em;}
+    28%  {left:10em; top:20em;}
+    37%  {left:8em; top:18em;}
+    46% {left:6em; top:20em;}
+    60%  {left:4em; top:23em;}
+    74%  {left:2em; top:20em;}
+    88%  {left:4em; top:18em;}
+    100%  {left:6em; top:20em;}
+}
+
+@keyframes swordBob2 {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    /*0%   {left:0em; top:20em;}*/
+    /*14%  {left:2em; top:23em;}*/
+    /*28%  {left:4em; top:20em;}*/
+    /*37%  {left:2em; top:18em;}*/
+    /*46% {left:0em; top:20em;}*/
+    /*60%  {left:-2em; top:23em;}*/
+    /*74%  {left:-4em; top:20em;}*/
+    /*88%  {left:-2em; top:18em;}*/
+    /*100%  {left:0em; top:20em;}*/
+
+    0%   {left:-6em; top:20em;}
+    14%  {left:-4em; top:23em;}
+    28%  {left:-2em; top:20em;}
+    37%  {left:-4em; top:18em;}
+    46% {left:-6em; top:20em;}
+    60%  {left:-8em; top:23em;}
+    74%  {left:-10em; top:20em;}
+    88%  {left:-8em; top:18em;}
+    100%  {left:-6em; top:20em;}
 }
 
 /*@keyframes fireballC {*/
