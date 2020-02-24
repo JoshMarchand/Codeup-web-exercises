@@ -7,7 +7,7 @@
 // setting.then(null, onError);
 
 var spacePressed = 0;
-
+var theKey;
 var yourPos = 0;
 var theDragon = document.getElementById("bigDragon");
 var theStrike = document.getElementById("strike");
@@ -63,7 +63,7 @@ document.addEventListener('keydown', (event) => {
 
 
         setTimeout(function () {
-            setTimeout(spaced0, 5000);
+            setTimeout(spaced0, 2000);
 
             removeAni();
         }, 450);
@@ -101,7 +101,7 @@ document.addEventListener('keydown', (event) => {
         // document.addEventListener('keyup', changeAgain);
 
         document.addEventListener('keyup', (event) => {
-            if (event.key == 'c'){
+            if (event.key == 'c' && yourPos !== 2){
                 changeAgain();
             }
         });
@@ -124,7 +124,7 @@ document.addEventListener('keydown', (event) => {
         // document.addEventListener('keyup', changeAgain2);
 
         document.addEventListener('keyup', (event) => {
-            if (event.key == 'v'){
+            if (event.key == 'v' && yourPos !== 1){
                 changeAgain2();
             }
         });

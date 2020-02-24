@@ -94,8 +94,8 @@ body {
     position: relative;
     user-select: none;
 
-    top: 125px;
-    left: -90px;
+    top: 225px;
+    left: 25px;
 
 }
 
@@ -106,8 +106,8 @@ body {
     position: relative;
     user-select: none;
 
-    top: 125px;
-    left: -390px;
+    top: 225px;
+    left: -265px;
 
 }
 
@@ -117,8 +117,8 @@ body {
     z-index: 4;
     position: relative;
     user-select: none;
-    top: 125px;
-    left: 185px;
+    top: 225px;
+    left: 310px;
 
 }
 
@@ -197,7 +197,7 @@ body {
 
 .bigDragonB1 {
     top: -0px;
-    left: -90px;
+    left: -69px;
 }
 
 .bigDragonC2 {
@@ -207,7 +207,7 @@ body {
 
 .bigDragonB2 {
     top: -0px;
-    left: -390px;
+    left: -369px;
 }
 
 .bigDragonC3 {
@@ -217,21 +217,21 @@ body {
 
 .bigDragonB3 {
     top: -0px;
-    left: 185px;
+    left: 181px;
 }
 
 .dstrike0 {
-    top: 125px;
+    top: 90px;
     left: -90px;
 }
 
 .dstrike1 {
-    top: 125px;
+    top: 90px;
     left: -390px;
 }
 
 .dstrike2 {
-    top: 125px;
+    top: 90px;
     left: 185px;
 }
 
