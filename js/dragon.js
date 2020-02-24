@@ -3,7 +3,8 @@ var dragPos=0;
 var stabCounter = 0;
 
 
-(function () {
+function start() {
+
 
 
 
@@ -178,5 +179,5 @@ var stabCounter = 0;
 
 
     }
-})();
+}
 
