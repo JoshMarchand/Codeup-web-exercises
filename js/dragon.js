@@ -1,9 +1,13 @@
 
 var dragPos=0;
-
+var stabCounter = 0;
 
 
 (function () {
+
+
+
+    var blastCounter = 0;
 
     var landed2 = 0;
 
@@ -30,6 +34,8 @@ var dragPos=0;
 
 
             fireballTimer2--;
+
+            console.log(fireballTimer2);
 
             if (fireballTimer2 == 2) {
                 console.log(dragPos + 'dragpos');
@@ -108,11 +114,69 @@ var dragPos=0;
         var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
 
 
+    blastCounter++;
 
         setTimeout(function () {
-            pizzaFire2();
-        }, delay2);
+            if (blastCounter < 5) {
+                pizzaFire2();
+            } else {
+                blastCounter = 0;
+                swordAttack();
+            }
+        }, 2000);
+
+
+    }
+
+    function swordAttack() {
+        var hitPos;
+
+
+        stabCounter++;
+
+        hitPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
+
+        if (stabCounter === 10){
+            theFire2.setAttribute('src', 'img/dragon stab long.gif');
+            // stabCounter = 0;
+        } else {
+            theFire2.setAttribute('src', 'img/dragon stab.gif');
+        }
+
+        if (yourPos === 0) {
+            // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            theFire2.setAttribute('class', 'dstrike0');
+        }else if (yourPos === 1) {
+            // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            theFire2.setAttribute('class', 'dstrike1');
+        }else if (yourPos === 2) {
+            // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            theFire2.setAttribute('class', 'dstrike2');
+        }
+
+        if (stabCounter === 10){
+            // theFire2.setAttribute('src', 'img/dragon stab long.gif');
+            // console.log('stab counter ten to pizza fire');
+            stabCounter = 0;
+            setTimeout(function () {
+
+
+                pizzaFire2();
+            }, 2000);
+        } else {
+            // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            setTimeout(function () {
+                // console.log('stab counter ten to sword atrtack');
+                swordAttack();
+            }, 750);
+        }
+
+
+//         setTimeout(function () {
+// swordAttack();
+//         }, 750);
 
 
     }
 })();
+

@@ -87,6 +87,42 @@ body {
 
 }
 
+.bobStrike0 {
+    /*align-self: flex-end;*/
+
+    z-index: 4;
+    position: relative;
+    user-select: none;
+
+    top: 125px;
+    left: -90px;
+
+}
+
+.bobStrike1 {
+    /*align-self: flex-end;*/
+
+    z-index: 4;
+    position: relative;
+    user-select: none;
+
+    top: 125px;
+    left: -390px;
+
+}
+
+.bobStrike2 {
+    /*align-self: flex-end;*/
+
+    z-index: 4;
+    position: relative;
+    user-select: none;
+    top: 125px;
+    left: 185px;
+
+}
+
+
 
 #fireball {
     height: 100px;
@@ -184,6 +220,21 @@ body {
     left: 185px;
 }
 
+.dstrike0 {
+    top: 125px;
+    left: -90px;
+}
+
+.dstrike1 {
+    top: 125px;
+    left: -390px;
+}
+
+.dstrike2 {
+    top: 125px;
+    left: 185px;
+}
+
 
 
 #bigDragonBlast {
@@ -263,28 +314,28 @@ body {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
     0%   {left:0em; top:20em;}
-    14%  {left:2em; top:23em;}
-    28%  {left:4em; top:20em;}
-    37%  {left:2em; top:18em;}
+    14%  {left:1em; top:21em;}
+    28%  {left:2em; top:20em;}
+    37%  {left:1em; top:19em;}
     46% {left:0em; top:20em;}
-    60%  {left:-2em; top:23em;}
-    74%  {left:-4em; top:20em;}
-    88%  {left:-2em; top:18em;}
+    60%  {left:-1em; top:21em;}
+    74%  {left:-2em; top:20em;}
+    88%  {left:-1em; top:19em;}
     100%  {left:0em; top:20em;}
 }
 
 @keyframes swordBob3 {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:6em; top:20em;}
-    14%  {left:8em; top:23em;}
-    28%  {left:10em; top:20em;}
-    37%  {left:8em; top:18em;}
-    46% {left:6em; top:20em;}
-    60%  {left:4em; top:23em;}
-    74%  {left:2em; top:20em;}
-    88%  {left:4em; top:18em;}
-    100%  {left:6em; top:20em;}
+    0%   {left:16em; top:20em;}
+    14%  {left:17em; top:21em;}
+    28%  {left:18em; top:20em;}
+    37%  {left:17em; top:19em;}
+    46% {left:16em; top:20em;}
+    60%  {left:15em; top:21em;}
+    74%  {left:14em; top:20em;}
+    88%  {left:15em; top:19em;}
+    100%  {left:16em; top:20em;}
 }
 
 @keyframes swordBob2 {
@@ -300,15 +351,15 @@ body {
     /*88%  {left:-2em; top:18em;}*/
     /*100%  {left:0em; top:20em;}*/
 
-    0%   {left:-6em; top:20em;}
-    14%  {left:-4em; top:23em;}
-    28%  {left:-2em; top:20em;}
-    37%  {left:-4em; top:18em;}
-    46% {left:-6em; top:20em;}
-    60%  {left:-8em; top:23em;}
-    74%  {left:-10em; top:20em;}
-    88%  {left:-8em; top:18em;}
-    100%  {left:-6em; top:20em;}
+    0%   {left:-20em; top:20em;}
+    14%  {left:-19em; top:21em;}
+    28%  {left:-18em; top:20em;}
+    37%  {left:-19em; top:19em;}
+    46% {left:-20em; top:20em;}
+    60%  {left:-21em; top:21em;}
+    74%  {left:-22em; top:20em;}
+    88%  {left:-21em; top:19em;}
+    100%  {left:-20em; top:20em;}
 }
 
 @keyframes dragonBlast {

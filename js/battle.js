@@ -6,8 +6,7 @@
 // var setting = browser.tabs.setZoom(0);
 // setting.then(null, onError);
 
-
-
+var spacePressed = 0;
 
 var yourPos = 0;
 var theDragon = document.getElementById("bigDragon");
@@ -34,13 +33,61 @@ function getOffset(el) {
 }
 
 
-
 document.addEventListener('keydown', (event) => {
+
+
 
     console.log(event);
 
-    if (event.key == ' ') {
-        pizza();
+    if (event.key == ' ' && spacePressed === 0) {
+
+        spacePressed = 1;
+        console.log(spacePressed + ' space is pressed');
+
+        meBob.setAttribute('src', 'img/strike-5.gif');
+
+        if (yourPos == 0){
+            meBob.setAttribute('class', 'bobStrike0');
+
+        }else if (yourPos ==1){
+            meBob.setAttribute('class', 'bobStrike1');
+
+        }else if (yourPos == 2){
+            meBob.setAttribute('class', 'bobStrike2');
+
+        }
+
+        function spaced0 () {
+            spacePressed = 0;
+        }
+
+
+        setTimeout(function () {
+            setTimeout(spaced0, 5000);
+
+            removeAni();
+        }, 450);
+
+
+        function removeAni() {
+            meBob.setAttribute('src', 'img/bob2.gif');
+
+            if (yourPos == 0){
+                meBob.setAttribute('class', 'bob');
+
+            }else if (yourPos ==1){
+                meBob.setAttribute('class', 'bob2');
+
+            }else if (yourPos == 2){
+                meBob.setAttribute('class', 'bob3');
+
+            }
+        }
+
+
+
+
+
     }
 
     if (event.key == 'c') {
@@ -48,33 +95,43 @@ document.addEventListener('keydown', (event) => {
         // meBob.style['animation-name'] = swordBob2;
 
 
-    yourPos = 1;
-    // meBob.setAttribute('class', 'bob3');
-    meBob.setAttribute('class', 'bob2');
-    document.addEventListener('keyup', changeAgain);
+        yourPos = 1;
+        // meBob.setAttribute('class', 'bob3');
+        meBob.setAttribute('class', 'bob2');
+        // document.addEventListener('keyup', changeAgain);
 
-    function changeAgain (){
-        meBob.setAttribute('class', 'bob');
-        document.removeEventListener('keyup', changeAgain);
-        yourPos = 0;
+        document.addEventListener('keyup', (event) => {
+            if (event.key == 'c'){
+                changeAgain();
+            }
+        });
 
-    }
+        function changeAgain() {
+            meBob.setAttribute('class', 'bob');
+            document.removeEventListener('keyup', (event));
+            yourPos = 0;
+
+        }
 
         console.log('meBob work');
-
 
 
     }
 
     if (event.key == 'v') {
-        meBob.setAttribute('class', 'bob3');
-        document.addEventListener('keyup', changeAgain2);
         yourPos = 2;
+        meBob.setAttribute('class', 'bob3');
+        // document.addEventListener('keyup', changeAgain2);
 
+        document.addEventListener('keyup', (event) => {
+            if (event.key == 'v'){
+                changeAgain2();
+            }
+        });
 
-        function changeAgain2 (){
+        function changeAgain2() {
             meBob.setAttribute('class', 'bob');
-            document.removeEventListener('keyup', changeAgain2);
+            document.removeEventListener('keyup', (event));
             yourPos = 0;
 
         }
@@ -145,6 +202,7 @@ var pizza = function (event) {
             clearInterval(dragonHitVar);
         }
     }
+
     var dragonHitVar = setInterval(dragonHit, 1000);
 }
 
