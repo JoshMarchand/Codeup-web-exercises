@@ -159,14 +159,29 @@ body {
     left: -150px;
 }
 
+.bigDragonB1 {
+    top: -0px;
+    left: -90px;
+}
+
 .bigDragonC2 {
      top: -45px;
      left: -450px;
  }
 
+.bigDragonB2 {
+    top: -0px;
+    left: -390px;
+}
+
 .bigDragonC3 {
     top: -45px;
     left: 100px;
+}
+
+.bigDragonB3 {
+    top: -0px;
+    left: 185px;
 }
 
 

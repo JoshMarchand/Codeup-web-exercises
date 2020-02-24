@@ -10,7 +10,7 @@ var dragPos=0;
     document.getElementById('bigDragon').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 4;
     var theFire2 = document.getElementById("bigDragon");
 
 
@@ -32,7 +32,20 @@ var dragPos=0;
             fireballTimer2--;
 
             if (fireballTimer2 == 2) {
-                theFire2.setAttribute("src", "img/ultimate blast.gif");
+                console.log(dragPos + 'dragpos');
+                if (dragPos== 0){
+                    theFire2.setAttribute("class", "bigDragonB1");
+
+                }if (dragPos== 1){
+                    theFire2.setAttribute("class", "bigDragonB2");
+
+                }if (dragPos== 2){
+                    theFire2.setAttribute("class", "bigDragonB3");
+                }
+                theFire2.setAttribute("src", "img/ultimate blast final 2.gif");
+
+
+
             }
 
 
@@ -43,7 +56,7 @@ var dragPos=0;
                     yourHP--;
                 }
 
-                fireballTimer2 = 6;
+                fireballTimer2 = 4;
                 console.log(yourHP);
                 thisRandom2();
                 clearInterval(fireHitVar2);
@@ -63,7 +76,9 @@ var dragPos=0;
 
     function thisRandom2 (){
 
-        var dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
+        theFire2.setAttribute("src", "img/blast 1 final.gif");
+
+        dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
 
         if (dragPos == 0){
             theFire2.setAttribute("class", "bigDragonC1");
