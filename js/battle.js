@@ -34,13 +34,35 @@ document.getElementById('bigDragon').setAttribute('draggable', false);
 
 
 
+
+document.getElementById('startBut').addEventListener('click', adds);
+
+
+
 function adds() {
+
+    roar.play();
+        maintrack.play();
+
+
+
+    document.getElementById('startBut').removeEventListener('click', adds);
+
+
+// var but = document.getElementById('startBut');
+    document.getElementById('startBut').style.display = 'none';
+
+
     document.addEventListener('keydown', (event) => {
 
 
         console.log(event);
 
         if (event.key == ' ' && spacePressed === 0) {
+            snd.currentTime = 1;
+            snd.volume = .75;
+
+            snd.play();
 
             spacePressed = 1;
             console.log(spacePressed + ' space is pressed');
@@ -66,11 +88,14 @@ function adds() {
             setTimeout(function () {
                 setTimeout(spaced0, 2000);
 
+
                 removeAni();
             }, 450);
 
 
             function removeAni() {
+                snd.pause();
+                snd.currentTime = 1;
                 meBob.setAttribute('src', 'img/bob2.gif');
 
                 if (yourPos == 0) {

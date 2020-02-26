@@ -1,10 +1,17 @@
 
 var dragPos=0;
 var stabCounter = 0;
+var charge =  new Audio("sound/Spaceship_Takeoff-Richard-902554369.mp3");
+var blast =  new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 
 
-function start() {
 
+document.getElementById('startBut').addEventListener('click', start(1));
+
+function start(num) {
+
+    console.log(num + 'should be 1');
+    document.getElementById('startBut').removeEventListener('click', start);
 
 
 
@@ -26,11 +33,15 @@ function start() {
     var pizzaFire2 = function (event) {
         // var landed2 = 1;
         // document.getElementById('bigDragon').addEventListener('click', hideDB2, false);
-
+        charge.pause();
+        blast.pause();
+        blast.currentTime = 0;
+        blast.play();
 
         var fireHitVar2 = setInterval(dragonHit2, 500);
 
         function dragonHit2() {
+
 
 
 
@@ -56,6 +67,7 @@ function start() {
             }
 
 
+
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "");
@@ -65,6 +77,7 @@ function start() {
 
                 fireballTimer2 = 4;
                 console.log(yourHP);
+
                 thisRandom2();
                 clearInterval(fireHitVar2);
 
@@ -83,9 +96,16 @@ function start() {
 
     function thisRandom2 (){
 
+
+        charge.currentTime = 0;
+        charge.play();
+
         theFire2.setAttribute("src", "img/blast 1 final.gif");
 
         dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
+
+
+
 
         if (dragPos == 0){
             theFire2.setAttribute("class", "bigDragonC1");
@@ -119,6 +139,7 @@ function start() {
 
         setTimeout(function () {
             if (blastCounter < 5) {
+
                 pizzaFire2();
             } else {
                 blastCounter = 0;
