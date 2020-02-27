@@ -138,7 +138,7 @@ body {
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballA;
-    animation-duration: 2.5s;
+    animation-duration: 2.4s;
     z-index: 5;
     user-select: none;
 }
@@ -149,7 +149,7 @@ body {
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballB;
-    animation-duration: 2.5s;
+    animation-duration: 2.4s;
     z-index: 5;
     user-select: none;
 }
@@ -160,7 +160,7 @@ body {
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballC;
-    animation-duration: 2.5s;
+    animation-duration: 2.4s;
     z-index: 5;
     user-select: none;
 }
@@ -171,7 +171,7 @@ body {
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballD;
-    animation-duration: 2.5s;
+    animation-duration: 2.4s;
     z-index: 5;
     user-select: none;
 }
@@ -182,7 +182,18 @@ body {
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballE;
-    animation-duration: 2.5s;
+    animation-duration: 2.4s;
+    z-index: 5;
+    user-select: none;
+}
+
+#fireball6 {
+    height: 50px;
+    width: 50px;
+    animation-timing-function: linear;
+    position: relative;
+    animation-name: fireballF;
+    animation-duration: 2.4s;
     z-index: 5;
     user-select: none;
 }
@@ -359,6 +370,14 @@ body {
     0%   {left:-16px; top:35px;}
 
     100%  {left:250px; top:420px;}
+}
+
+@keyframes fireballF {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:-16px; top:35px;}
+
+    100%  {left:-15px; top:420px;}
 }
 
 @keyframes swordBob {
