@@ -47,6 +47,10 @@ body {
     width: 100%;
 }
 
+.heartDiv{
+
+}
+
 #startBut {
     position: relative;
     top: 550px;
@@ -129,6 +133,43 @@ body {
     left: 310px;
 
 }
+
+.expDiv {
+    height: 0em;
+    width: 0em;
+}
+
+.exp {
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+.expHide{
+    display: none;
+}
+
+#exp1{
+left:-15px;
+    top:385px;
+    z-index: 15;
+}
+
+#exp2 {
+    top:385px;
+    left: 250px;
+    z-index: 15;
+
+}
+
+#exp3 {
+    top: 385px;
+    left:-350px;
+    z-index: 15;
+
+
+}
+
 
 
 

@@ -20,6 +20,8 @@
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dolorum earum et iure, molestiae molestias
         nam obcaecati, officia, provident quae quo ratione repellat. Asperiores eaque eius fugit minus quae?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dolorum earum et iure, molestiae molestias
+        nam obcaecati, officia, provident quae quo ratione repellat. Asperiores eaque eius fugit minus quae?</p>
 </div>
 <ul>
     <li id="one" class="codeup">thing1</li>
@@ -40,16 +42,20 @@
         $(this).css('background-color', 'blue');
     });
 
+    // $('p').dblclick(function (e) {
+    //     $(this).css('font-size', '18px');
+    // });
+
     $('p').dblclick(function (e) {
-        $(this).css('font-size', '18px');
+        $('p').css('font-size', '18px');
     });
 
     $('li').hover(
         function () {
-            $(this).css('color', 'red');
+            $('li').css('color', 'red');
         },
         function () {
-            $(this).css('color', 'black');
+            $('li').css('color', 'black');
             }
     );
 

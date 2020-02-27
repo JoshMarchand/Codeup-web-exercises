@@ -4,6 +4,7 @@ var charge = new Audio("sound/Spaceship_Takeoff-Richard-902554369.mp3");
 var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 
 
+
 function balls() {
     var theFire2 = document.getElementById("bigDragon");
     console.log('hi  from balls');
@@ -55,8 +56,8 @@ function balls() {
 document.getElementById('startBut').addEventListener('click', next);
 
 function next() {
-// start(1);
-    balls();
+start(1);
+//     balls();
 }
 
 function start(num) {
@@ -247,7 +248,7 @@ function fireballstart() {
     document.getElementById('fireball').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball");
 
 
@@ -278,7 +279,7 @@ function fireballstart() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
-
+                ex3();
                 fireballTimer2 = 6;
                 console.log(yourHP);
                 thisRandom2();
@@ -318,7 +319,7 @@ function fireballstart2() {
     document.getElementById('fireball2').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball2");
 
 
@@ -349,7 +350,7 @@ function fireballstart2() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
-
+                ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
                 thisRandom2();
@@ -389,7 +390,7 @@ function fireballstart3() {
     document.getElementById('fireball3').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball3");
 
 
@@ -420,7 +421,7 @@ function fireballstart3() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
-
+                ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
                 thisRandom2();
@@ -460,7 +461,7 @@ function fireballstart4() {
     document.getElementById('fireball4').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball4");
 
 
@@ -491,6 +492,7 @@ function fireballstart4() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
+                ex3();
 
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -531,7 +533,7 @@ function fireballstart5() {
     document.getElementById('fireball5').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball5");
 
 
@@ -562,7 +564,7 @@ function fireballstart5() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
-
+                ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
                 thisRandom2();
@@ -602,7 +604,7 @@ function fireballstart6() {
     document.getElementById('fireball6').setAttribute('draggable', false);
 
 
-    var fireballTimer2 = 5;
+    var fireballTimer2 = 6;
     var theFire2 = document.getElementById("fireball6");
 
 
@@ -633,7 +635,7 @@ function fireballstart6() {
                 if (landed2 == 1) {
                     yourHP--;
                 }
-
+                ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
                 thisRandom2();
@@ -665,5 +667,29 @@ function fireballstart6() {
 
 
     }
+}
+
+function ex1() {
+
+$('#exp1').attr('class', 'exp');
+    setTimeout(function () {
+        $('#exp1').attr('class', 'expHide');
+    }, 250);
+}
+
+function ex2() {
+
+    $('#exp2').attr('class', 'exp');
+    setTimeout(function () {
+        $('#exp2').attr('class', 'expHide');
+    }, 250);
+}
+
+function ex3() {
+
+    $('#exp3').attr('class', 'exp');
+    setTimeout(function () {
+        $('#exp3').attr('class', 'expHide');
+    }, 250);
 }
 
