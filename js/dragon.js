@@ -6,11 +6,30 @@ var blast =  new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 
 
 
-document.getElementById('startBut').addEventListener('click', start(1));
+
+
+
+function balls() {
+    var theFire2 = document.getElementById("bigDragon");
+    console.log('hi  from balls');
+    theFire2.setAttribute("src", "img/dark head 2.gif");
+    theFire2.setAttribute("class", "bigDragonhead");
+    fireballstart();
+    fireballstart2();
+    fireballstart3();
+    fireballstart4();
+    fireballstart5();
+
+}
+
+document.getElementById('startBut').addEventListener('click', next);
+
+function next() {
+start(1);
+}
 
 function start(num) {
 
-    console.log(num + 'should be 1');
     document.getElementById('startBut').removeEventListener('click', start);
 
 
@@ -183,7 +202,8 @@ function start(num) {
             setTimeout(function () {
 
 
-                pizzaFire2();
+                // pizzaFire2();
+                balls();
             }, 2000);
         } else {
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
@@ -201,4 +221,369 @@ function start(num) {
 
     }
 }
+
+function fireballstart() {
+
+    var landed2 = 0;
+
+    document.getElementById('fireball').setAttribute('draggable', false);
+
+
+    var fireballTimer2 = 5;
+    var theFire2 = document.getElementById("fireball");
+
+
+    console.log('js3 first');
+
+
+    console.log('hi from js 3');
+
+
+    thisRandom2();
+
+
+    var pizzaFire2 = function (event) {
+        var landed2 = 1;
+        document.getElementById('fireball').addEventListener('click', hideDB2, false);
+
+        theFire2.setAttribute("class", "fireball");
+        var fireHitVar2 = setInterval(dragonHit2, 500);
+
+        function dragonHit2() {
+
+
+            fireballTimer2--;
+
+            if (fireballTimer2 == 0) {
+
+                theFire2.setAttribute("class", "fireballhide");
+                if (landed2==1){
+                    yourHP--;
+                }
+
+                fireballTimer2 = 6;
+                console.log(yourHP);
+                thisRandom2();
+                clearInterval(fireHitVar2);
+
+            }
+        }
+
+        function hideDB2() {
+            document.getElementById('fireball').setAttribute('class', 'fireballhide');
+            console.log('hide db success');
+            landed2 = 0;
+        }
+
+    }
+
+
+
+    function thisRandom2 (){
+
+        console.log('hi from js this random2');
+
+
+        var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
+
+        setTimeout(function () {
+            pizzaFire2();
+        }, delay2);
+
+
+    }
+}
+
+function fireballstart2() {
+
+    var landed2 = 0;
+
+    document.getElementById('fireball2').setAttribute('draggable', false);
+
+
+    var fireballTimer2 = 5;
+    var theFire2 = document.getElementById("fireball2");
+
+
+    console.log('js3 first');
+
+
+    console.log('hi from js 3');
+
+
+    thisRandom2();
+
+
+    var pizzaFire2 = function (event) {
+        var landed2 = 1;
+        document.getElementById('fireball2').addEventListener('click', hideDB2, false);
+
+        theFire2.setAttribute("class", "fireball2");
+        var fireHitVar2 = setInterval(dragonHit2, 500);
+
+        function dragonHit2() {
+
+
+
+            fireballTimer2--;
+
+            if (fireballTimer2 == 0) {
+
+                theFire2.setAttribute("class", "fireballhide");
+                if (landed2==1){
+                    yourHP--;
+                }
+
+                fireballTimer2 = 6;
+                console.log(yourHP);
+                thisRandom2();
+                clearInterval(fireHitVar2);
+
+            }
+        }
+
+        function hideDB2() {
+            document.getElementById('fireball2').setAttribute('class', 'fireballhide');
+            console.log('hide db success');
+            landed2 = 0;
+        }
+
+    }
+
+
+
+    function thisRandom2 (){
+
+        console.log('hi from js this random2');
+
+
+        var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
+
+        setTimeout(function () {
+            pizzaFire2();
+        }, delay2);
+
+
+    }
+}
+
+function fireballstart3() {
+
+    var landed2 = 0;
+
+    document.getElementById('fireball3').setAttribute('draggable', false);
+
+
+    var fireballTimer2 = 5;
+    var theFire2 = document.getElementById("fireball3");
+
+
+    console.log('js3 first');
+
+
+    console.log('hi from js 3');
+
+
+    thisRandom2();
+
+
+    var pizzaFire2 = function (event) {
+        var landed2 = 1;
+        document.getElementById('fireball3').addEventListener('click', hideDB2, false);
+
+        theFire2.setAttribute("class", "fireball3");
+        var fireHitVar2 = setInterval(dragonHit2, 500);
+
+        function dragonHit2() {
+
+
+
+            fireballTimer2--;
+
+            if (fireballTimer2 == 0) {
+
+                theFire2.setAttribute("class", "fireballhide");
+                if (landed2==1){
+                    yourHP--;
+                }
+
+                fireballTimer2 = 6;
+                console.log(yourHP);
+                thisRandom2();
+                clearInterval(fireHitVar2);
+
+            }
+        }
+
+        function hideDB2() {
+            document.getElementById('fireball3').setAttribute('class', 'fireballhide');
+            console.log('hide db success');
+            landed2 = 0;
+        }
+
+    }
+
+
+
+    function thisRandom2 (){
+
+        console.log('hi from js this random2');
+
+
+        var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
+
+        setTimeout(function () {
+            pizzaFire2();
+        }, delay2);
+
+
+    }
+}
+
+function fireballstart4() {
+
+    var landed2 = 0;
+
+    document.getElementById('fireball4').setAttribute('draggable', false);
+
+
+    var fireballTimer2 = 5;
+    var theFire2 = document.getElementById("fireball4");
+
+
+    console.log('js3 first');
+
+
+    console.log('hi from js 3');
+
+
+    thisRandom2();
+
+
+    var pizzaFire2 = function (event) {
+        var landed2 = 1;
+        document.getElementById('fireball4').addEventListener('click', hideDB2, false);
+
+        theFire2.setAttribute("class", "fireball4");
+        var fireHitVar2 = setInterval(dragonHit2, 500);
+
+        function dragonHit2() {
+
+
+
+            fireballTimer2--;
+
+            if (fireballTimer2 == 0) {
+
+                theFire2.setAttribute("class", "fireballhide");
+                if (landed2==1){
+                    yourHP--;
+                }
+
+                fireballTimer2 = 6;
+                console.log(yourHP);
+                thisRandom2();
+                clearInterval(fireHitVar2);
+
+            }
+        }
+
+        function hideDB2() {
+            document.getElementById('fireball4').setAttribute('class', 'fireballhide');
+            console.log('hide db success');
+            landed2 = 0;
+        }
+
+    }
+
+
+
+    function thisRandom2 (){
+
+        console.log('hi from js this random2');
+
+
+        var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
+
+        setTimeout(function () {
+            pizzaFire2();
+        }, delay2);
+
+
+    }
+}
+
+function fireballstart5() {
+
+    var landed2 = 0;
+
+    document.getElementById('fireball5').setAttribute('draggable', false);
+
+
+    var fireballTimer2 = 5;
+    var theFire2 = document.getElementById("fireball5");
+
+
+    console.log('js3 first');
+
+
+    console.log('hi from js 3');
+
+
+    thisRandom2();
+
+
+    var pizzaFire2 = function (event) {
+        var landed2 = 1;
+        document.getElementById('fireball5').addEventListener('click', hideDB2, false);
+
+        theFire2.setAttribute("class", "fireball5");
+        var fireHitVar2 = setInterval(dragonHit2, 500);
+
+        function dragonHit2() {
+
+
+
+            fireballTimer2--;
+
+            if (fireballTimer2 == 0) {
+
+                theFire2.setAttribute("class", "fireballhide");
+                if (landed2==1){
+                    yourHP--;
+                }
+
+                fireballTimer2 = 6;
+                console.log(yourHP);
+                thisRandom2();
+                clearInterval(fireHitVar2);
+
+            }
+        }
+
+        function hideDB2() {
+            document.getElementById('fireball5').setAttribute('class', 'fireballhide');
+            console.log('hide db success');
+            landed2 = 0;
+        }
+
+    }
+
+
+
+    function thisRandom2 (){
+
+        console.log('hi from js this random2');
+
+
+        var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
+
+        setTimeout(function () {
+            pizzaFire2();
+        }, delay2);
+
+
+    }
+}
+
 

@@ -133,34 +133,56 @@ body {
 
 
 #fireball {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballA;
-    animation-duration: 3s;
+    animation-duration: 2.5s;
     z-index: 5;
     user-select: none;
 }
 
 #fireball2 {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballB;
-    animation-duration: 3s;
+    animation-duration: 2.5s;
     z-index: 5;
     user-select: none;
 }
 
 #fireball3 {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     animation-timing-function: linear;
     position: relative;
     animation-name: fireballC;
-    animation-duration: 3s;
+    animation-duration: 2.5s;
+    z-index: 5;
+    user-select: none;
+}
+
+#fireball4 {
+    height: 50px;
+    width: 50px;
+    animation-timing-function: linear;
+    position: relative;
+    animation-name: fireballD;
+    animation-duration: 2.5s;
+    z-index: 5;
+    user-select: none;
+}
+
+#fireball5 {
+    height: 50px;
+    width: 50px;
+    animation-timing-function: linear;
+    position: relative;
+    animation-name: fireballE;
+    animation-duration: 2.5s;
     z-index: 5;
     user-select: none;
 }
@@ -243,6 +265,11 @@ body {
     left: 185px;
 }
 
+.bigDragonhead {
+    top: -40px;
+    left: -30px;
+}
+
 
 
 #bigDragonBlast {
@@ -297,25 +324,41 @@ body {
 @keyframes fireballA {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:0em; top:-10em;}
+    0%   {left:-16px; top:35px;}
 
-    100%  {left:0em; top:80em;}
+    100%  {left:-350px; top:420px;}
 }
 
 @keyframes fireballB {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:0em; top:-10em;}
+    0%   {left:-16px; top:35px;}
 
-    100%  {left:0em; bottom:80em;}
+    100%  {left:250px; top:420px;}
 }
 
 @keyframes fireballC {
     /*from { transform: scaleX(.5) scaleY(.5);}*/
     /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
-    0%   {left:0em; top:-10em;}
+    0%   {left:-16px; top:35px;}
 
-    100%  {left:60em; top:80em;}
+    100%  {left:-15px; top:420px;}
+}
+
+@keyframes fireballD {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:-16px; top:35px;}
+
+    100%  {left:-350px; top:420px;}
+}
+
+@keyframes fireballE {
+    /*from { transform: scaleX(.5) scaleY(.5);}*/
+    /*to   { transform: scaleX(1.5) scaleY(1.5);}*/
+    0%   {left:-16px; top:35px;}
+
+    100%  {left:250px; top:420px;}
 }
 
 @keyframes swordBob {
