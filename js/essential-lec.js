@@ -11,23 +11,80 @@
 
 // Getter for text of logo color
 function getColorText() {
+return $('#colorText').html();
+}
+
+console.log(getColorText());
+
+// Setter for text of logo color
+function setColorText (color){
+    $('#colorText').removeClass(getColorText()).html(color).addClass(color);
 
 }
 
-// Setter for text of logo color
-
+setColorText('purple');
 // Getter for section color
+function getSectionColor(section) {
+return $(section).attr('class');
+}
 
+console.log(getSectionColor('#path1'));
 // Setter for the section color
 // change all sections if 'all' is passed in
 // if individual section is passed in, change its color (used for Rainbow effect)
+function setSectionColor(color, section) {
+if (section === 'all') {
+resetColor();
+    setColorText(color);
+return $('.codeup-logo > path').addClass(color);
+} else {
+    $(section).removeClass(getSectionColor(section));
 
+    return $(section).addClass(color);
+}
+}
 
+setSectionColor('orange', '#path3');
+
+function resetColor() {
+$('.codeup-logo > path').removeClass( function () {
+return $(this).attr('class');
+})
+}
 // reset all path elements to default, and change the 'color' text in the h2 to 'green'
 
 
 // write a function called rainbowLogo() that changes the logo to rainbow colors
+function rainbowLogo() {
+ var text = 'rainbow';
+ var logoSections = ['path1', 'path2', 'path3', 'path4', 'path5', 'path6'];
+ var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+    var colorfulText = [];
 
+ logoSections.forEach(function (sectionId) {
+setSectionColor(colors[counter], sectionId);
+counter++;
+ });
+
+    var counter = 0;
+    var i = 0;
+
+
+ text.split('').forEach(function (letter) {
+colorfulText[i] = '<span class = "' + colors[counter] + '">' + letter + '</span>';
+if (counter===5){
+    counter=0;
+}
+counter++; i++;
+ });
+
+ text = colorfulText.join(' ');
+    console.log(text);
+
+    return $('colorText').removeClass(getColorText()).html(text);
+}
+
+console.log(rainbowLogo());
 
 // Set a variable called circleClickCount, to keep track of how many times an individual circle has been clicked
 
