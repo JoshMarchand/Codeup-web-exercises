@@ -2,8 +2,12 @@ var dragPos = 0;
 var stabCounter = 0;
 var charge = new Audio("sound/Spaceship_Takeoff-Richard-902554369.mp3");
 var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
+var swoosh = new Audio("sound/Swoosh 1-SoundBible.com-231145780.mp3");
+var ballBl = new Audio("sound/Explosion+3.mp3");
+var yourHP = 6;
+ballPos = 0;
 
-
+maxhpset();
 
 function balls() {
     var theFire2 = document.getElementById("bigDragon");
@@ -82,10 +86,7 @@ function start(num) {
     var pizzaFire2 = function (event) {
         // var landed2 = 1;
         // document.getElementById('bigDragon').addEventListener('click', hideDB2, false);
-        charge.pause();
-        blast.pause();
-        blast.currentTime = 0;
-        blast.play();
+
 
         var fireHitVar2 = setInterval(dragonHit2, 500);
 
@@ -97,6 +98,14 @@ function start(num) {
             console.log(fireballTimer2);
 
             if (fireballTimer2 == 2) {
+
+                blast.pause();
+                blast.currentTime = 0;
+                blast.play();
+                if (dragPos == yourPos) {
+                    yourHP -=2;
+                    hearts(yourHP);
+                }
                 console.log(dragPos + 'dragpos');
                 if (dragPos == 0) {
                     theFire2.setAttribute("class", "bigDragonB1");
@@ -118,9 +127,7 @@ function start(num) {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "");
-                if (dragPos == yourPos) {
-                    yourHP--;
-                }
+
 
                 fireballTimer2 = 4;
                 console.log(yourHP);
@@ -142,13 +149,17 @@ function start(num) {
 
     function thisRandom2() {
 
-
-        charge.currentTime = 0;
         charge.play();
+
+        setTimeout(function () {
+            charge.pause();
+            charge.currentTime = .3;
+        }, 2100);
 
         theFire2.setAttribute("src", "img/blast 1 final.gif");
 
-        dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
+        // dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
+        dragPos = yourPos;
 
 
         if (dragPos == 0) {
@@ -175,15 +186,21 @@ function start(num) {
 
         blastCounter++;
 
-        setTimeout(function () {
-            if (blastCounter < 5) {
+
+        if (blastCounter >= 5){
+            charge.pause();
+            charge.currentTime = 0;
+            blastCounter = 0;
+            swordAttack();
+        } else {
+            setTimeout(function () {
 
                 pizzaFire2();
-            } else {
-                blastCounter = 0;
-                swordAttack();
-            }
-        }, 2000);
+
+            }, 2000);
+        }
+
+
 
 
     }
@@ -196,7 +213,7 @@ function start(num) {
 
         hitPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
 
-        if (stabCounter === 10) {
+        if (stabCounter === 10 || stabCounter === 1) {
             theFire2.setAttribute('src', 'img/dragon stab long.gif');
             // stabCounter = 0;
         } else {
@@ -205,26 +222,61 @@ function start(num) {
 
         if (yourPos === 0) {
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            dragPos = yourPos;
             theFire2.setAttribute('class', 'dstrike0');
         } else if (yourPos === 1) {
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            dragPos = yourPos;
             theFire2.setAttribute('class', 'dstrike1');
         } else if (yourPos === 2) {
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            dragPos = yourPos;
             theFire2.setAttribute('class', 'dstrike2');
         }
 
-        if (stabCounter === 10) {
+        if (stabCounter === 10 || stabCounter === 1) {
             // theFire2.setAttribute('src', 'img/dragon stab long.gif');
             // console.log('stab counter ten to pizza fire');
+            if (stabCounter === 10){
+
             stabCounter = 0;
             setTimeout(function () {
 
 
                 // pizzaFire2();
                 balls();
-            }, 2000);
+            }, 1800);
+            }
+
+            if (stabCounter === 1){
+
+
+            setTimeout(function () {
+                swoosh.pause();
+                swoosh.currentTime = 0;
+                swoosh.play();
+                if (dragPos == yourPos) {
+                    yourHP--;
+                    hearts(yourHP);
+                }
+            }, 1200);
+            // theFire2.setAttribute('src', 'img/dragon stab.gif');
+            setTimeout(function () {
+                // console.log('stab counter ten to sword atrtack');
+                swordAttack();
+            }, 1800);
+            }
+
         } else {
+            setTimeout(function () {
+                swoosh.pause();
+                swoosh.currentTime = 0;
+                swoosh.play();
+                if (dragPos == yourPos) {
+                    yourHP--;
+                    hearts(yourHP);
+                }
+            }, 480);
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
             setTimeout(function () {
                 // console.log('stab counter ten to sword atrtack');
@@ -263,6 +315,7 @@ function fireballstart() {
 
     var pizzaFire2 = function (event) {
         var landed2 = 1;
+        ballPos = 1;
         document.getElementById('fireball').addEventListener('click', hideDB2, false);
 
         theFire2.setAttribute("class", "fireball");
@@ -276,9 +329,11 @@ function fireballstart() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 1) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex3();
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -313,7 +368,6 @@ function fireballstart() {
 }
 
 function fireballstart2() {
-
     var landed2 = 0;
 
     document.getElementById('fireball2').setAttribute('draggable', false);
@@ -347,9 +401,11 @@ function fireballstart2() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 2) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -384,7 +440,6 @@ function fireballstart2() {
 }
 
 function fireballstart3() {
-
     var landed2 = 0;
 
     document.getElementById('fireball3').setAttribute('draggable', false);
@@ -418,9 +473,11 @@ function fireballstart3() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 0) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -457,7 +514,6 @@ function fireballstart3() {
 function fireballstart4() {
 
     var landed2 = 0;
-
     document.getElementById('fireball4').setAttribute('draggable', false);
 
 
@@ -489,9 +545,11 @@ function fireballstart4() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 1) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex3();
 
                 fireballTimer2 = 6;
@@ -527,7 +585,6 @@ function fireballstart4() {
 }
 
 function fireballstart5() {
-
     var landed2 = 0;
 
     document.getElementById('fireball5').setAttribute('draggable', false);
@@ -561,9 +618,11 @@ function fireballstart5() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 2) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -632,9 +691,11 @@ function fireballstart6() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (landed2 == 1) {
+                if (yourPos == 0) {
                     yourHP--;
+                    hearts(yourHP);
                 }
+
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
@@ -692,4 +753,7 @@ function ex3() {
         $('#exp3').attr('class', 'expHide');
     }, 250);
 }
+
+
+
 

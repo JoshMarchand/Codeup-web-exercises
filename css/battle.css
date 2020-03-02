@@ -48,8 +48,24 @@ body {
 }
 
 .heartDiv{
+display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+}
+
+.heart {
+    z-index: 20;
+    max-height: 50px;
+    max-width: 50px;
+    height: auto;
+    width: auto;
 
 }
+
+#heart1 {
+ }
+
 
 #startBut {
     position: relative;

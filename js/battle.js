@@ -28,7 +28,7 @@ var bodyCurs = document.getElementsByTagName('body');
 var meBob = document.getElementById('bob');
 console.log(typeof meBob);
 var rect = document.body.getBoundingClientRect();
-var yourHP = 6;
+
 console.log(rect.top, rect.right, rect.bottom, rect.left);
 document.getElementById('bigDragon').setAttribute('draggable', false);
 
@@ -86,7 +86,7 @@ function adds() {
 
 
             setTimeout(function () {
-                setTimeout(spaced0, 2000);
+                setTimeout(spaced0, 500);
 
 
                 removeAni();
