@@ -8,6 +8,12 @@
 </head>
 <body>
 
+
+<div>
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>x</span>
+</div>
+
 <h1>Hide</h1>
 
 <dl>
@@ -32,13 +38,44 @@
     <dt>thing10</dt>
     <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, animi blanditiis doloremque excepturi iusto laboriosam nobis quidem sunt voluptatibus. Aliquid consectetur eligendi esse impedit maiores modi numquam provident rerum unde.</dd>
 </dl>
+
+<ul>
+    <h3>thing1</h3>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore fugiat minus optio quo ratione repudiandae suscipit vel voluptatem voluptates. Aliquam architecto delectus magni officia perferendis quidem rem tempora vel!</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem eaque eos fugit itaque minus molestias pariatur, quam quia saepe similique, ut velit veniam? Atque inventore iure odio sequi similique?</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto delectus dignissimos dolore earum est facere in ipsam, iure libero modi molestias nam neque non perspiciatis quae quos, sapiente unde.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad culpa delectus facilis, iusto libero maxime quos unde. Ad animi aut nemo perferendis placeat quae quas reprehenderit? Earum nobis, provident?</li>
+</ul>
+<ul>
+    <h3>thing2</h3>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deleniti ea harum illum placeat porro, provident quos repudiandae sint? Amet aut eius exercitationem id ipsum magni odit perspiciatis tenetur voluptate.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aliquid assumenda consequuntur earum impedit iste nam odit quae temporibus ullam. Ab blanditiis explicabo facere quibusdam ratione sapiente. Ab, dolores, excepturi!</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur in maxime veniam! Aliquam animi, culpa expedita explicabo molestiae nemo perferendis quae quam quod velit. Dolorem ex labore nisi optio.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae distinctio eaque earum enim esse expedita facere hic illum magnam, modi molestiae pariatur quia quisquam, quo rerum, sint sunt suscipit.</li>
+</ul>
+<ul>
+    <h3>thing3</h3>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, autem debitis earum eligendi impedit nulla odio officia omnis, optio perspiciatis porro quam repellendus voluptatibus? Dolorum esse id perspiciatis quisquam voluptate?</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias animi, culpa dolorum eum excepturi, expedita hic laborum magni nemo nobis porro praesentium quidem reprehenderit similique sit temporibus veniam vero!</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad error esse ipsum itaque, nobis sunt vitae voluptatem. Adipisci delectus dolore eius, eos, nemo praesentium quas quis rerum, sapiente unde veniam!</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur assumenda aut blanditiis cupiditate deserunt dicta earum eum fuga illum itaque iure, laudantium mollitia nam natus porro, recusandae rerum, sit!</li>
+</ul>
+
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    $('dl dd').addClass('invisible');
-    $('.invisible').css('visibility', 'hidden');
-    $('h1').click(function () {
-        $('dl dd').toggleClass('invisible');
+    'use strict';
+
+    $(document).ready(function () {
+        // $('dl dd').addClass('invisible');
+        $('.invisible').css('visibility', 'hidden');
+        $('h1').click(function () {
+            $('dl dd').toggleClass('invisible');
+        });
     });
+
+
+
+
 </script>
 
 </body>
