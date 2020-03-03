@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
+
 
 </head>
 <body>
@@ -14,7 +20,9 @@
     <span>x</span>
 </div>
 
-<h1>Hide</h1>
+<a href="#" id="styler">Click to change some things!</a>
+
+<h3 id="reg">Register?</h3>
 
 <dl>
     <dt>thing1</dt>
@@ -38,28 +46,32 @@
     <dt>thing10</dt>
     <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, animi blanditiis doloremque excepturi iusto laboriosam nobis quidem sunt voluptatibus. Aliquid consectetur eligendi esse impedit maiores modi numquam provident rerum unde.</dd>
 </dl>
-
+<h3>thing1</h3>
 <ul>
-    <h3>thing1</h3>
+
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore fugiat minus optio quo ratione repudiandae suscipit vel voluptatem voluptates. Aliquam architecto delectus magni officia perferendis quidem rem tempora vel!</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem eaque eos fugit itaque minus molestias pariatur, quam quia saepe similique, ut velit veniam? Atque inventore iure odio sequi similique?</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto delectus dignissimos dolore earum est facere in ipsam, iure libero modi molestias nam neque non perspiciatis quae quos, sapiente unde.</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad culpa delectus facilis, iusto libero maxime quos unde. Ad animi aut nemo perferendis placeat quae quas reprehenderit? Earum nobis, provident?</li>
 </ul>
+<h3>thing2</h3>
 <ul>
-    <h3>thing2</h3>
+
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deleniti ea harum illum placeat porro, provident quos repudiandae sint? Amet aut eius exercitationem id ipsum magni odit perspiciatis tenetur voluptate.</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aliquid assumenda consequuntur earum impedit iste nam odit quae temporibus ullam. Ab blanditiis explicabo facere quibusdam ratione sapiente. Ab, dolores, excepturi!</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur in maxime veniam! Aliquam animi, culpa expedita explicabo molestiae nemo perferendis quae quam quod velit. Dolorem ex labore nisi optio.</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae distinctio eaque earum enim esse expedita facere hic illum magnam, modi molestiae pariatur quia quisquam, quo rerum, sint sunt suscipit.</li>
 </ul>
+<h3>thing3</h3>
 <ul>
-    <h3>thing3</h3>
+
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, autem debitis earum eligendi impedit nulla odio officia omnis, optio perspiciatis porro quam repellendus voluptatibus? Dolorum esse id perspiciatis quisquam voluptate?</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias animi, culpa dolorum eum excepturi, expedita hic laborum magni nemo nobis porro praesentium quidem reprehenderit similique sit temporibus veniam vero!</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad error esse ipsum itaque, nobis sunt vitae voluptatem. Adipisci delectus dolore eius, eos, nemo praesentium quas quis rerum, sapiente unde veniam!</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aspernatur assumenda aut blanditiis cupiditate deserunt dicta earum eum fuga illum itaque iure, laudantium mollitia nam natus porro, recusandae rerum, sit!</li>
 </ul>
+
+<button type="submit">Button</button>
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
@@ -67,10 +79,55 @@
 
     $(document).ready(function () {
         // $('dl dd').addClass('invisible');
-        $('.invisible').css('visibility', 'hidden');
-        $('h1').click(function () {
+        $('#styler').click(function () {
             $('dl dd').toggleClass('invisible');
+            // $('.red').css('color', 'red');
         });
+
+        $('dt').click(function () {
+            $('dt').css('background-color', '');
+                $(this).css('background-color', 'yellow');
+        });
+
+        $('button').click(function (e) {
+            e.preventDefault();
+            $('ul').each(function () {
+    $(this).children().last().css('background', 'yellow');
+            })
+        });
+
+        $('h3').click(function () {
+$(this).next('li').css('font-weight', 'bold');
+        })
+
+//         $('li').click(function () {
+// $(this).parent().children().first().css('color', 'blue');
+//         })
+
+        $("li").removeClass("bold-font").click(function () {
+            $(this).parent().children().first().css("color", "blue")
+        });
+
+        // $('ul').children().addClass('invisible');
+
+        $('h3').click(function () {
+            $(this).next('ul').children().slideToggle(5000);
+
+        })
+
+        $('#reg').hide();
+
+        $('#reg').delay(8000).fadeIn();
+
+
+        $('span').click(function () {
+$(this).parent().addClass('invisible');
+        })
+        // $("button").click(function () {
+        //     $("ul").each(function() {
+        //         $(this).children().last().css("background", "yellow");
+        //     })
+        // });
     });
 
 
