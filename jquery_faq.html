@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
 </head>
 <body>
+
+<h1>Hide</h1>
 
 <dl>
     <dt>thing1</dt>
@@ -30,7 +34,11 @@
 </dl>
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    $()
+    $('dl dd').addClass('invisible');
+    $('.invisible').css('visibility', 'hidden');
+    $('h1').click(function () {
+        $('dl dd').toggleClass('invisible');
+    });
 </script>
 
 </body>
