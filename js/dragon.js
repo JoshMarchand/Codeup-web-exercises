@@ -4,7 +4,7 @@ var charge = new Audio("sound/Spaceship_Takeoff-Richard-902554369.mp3");
 var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 var swoosh = new Audio("sound/Swoosh 1-SoundBible.com-231145780.mp3");
 var ballBl = new Audio("sound/Explosion+3.mp3");
-var yourHP = 6;
+// var yourHP = 6;
 ballPos = 0;
 
 maxhpset();
@@ -150,6 +150,7 @@ function start(num) {
     function thisRandom2() {
 
         charge.play();
+
 
         setTimeout(function () {
             charge.pause();
