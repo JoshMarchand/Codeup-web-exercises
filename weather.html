@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/keys.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey + '/37.8267,-122.4233').done(function (data) {
+        console.log(data);
+        console.log(new Date(data.currently.time * 1000));
+    })
+</script>
+</body>
+</html>

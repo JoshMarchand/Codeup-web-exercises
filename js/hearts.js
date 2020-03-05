@@ -1,21 +1,33 @@
 
-var yourHP = localStorage.getItem('yourHP') || 6;
-var maxHP = localStorage.getItem('maxHP') || 10;
-console.log('yourhp is ' + yourHP +'and your maxhp is' + maxHP + 'heart bucket is ' + heartBucket);
 
-if (yourHP < maxHP){
-
-    var heartBucket = parseInt(yourHP);
-    console.log('yourhp is ' + yourHP +'and your maxhp is' + maxHP + 'heart bucket is ' + heartBucket);
+var maxHP = parseInt(localStorage.getItem('maxHP'))  || 10;
+var yourHP = parseInt(localStorage.getItem('yourHP'))  || 6;
+if (yourHP <=0){
     yourHP = maxHP;
+}
+
+console.log('yourhp is ' + yourHP +'and your maxhp is' + maxHP + 'heart bucket is ' + heartBucket);
+console.log(typeof yourHP);
+
+if (yourHP  < maxHP ){
+    // console.log('yourhp is ' + yourHP +'and your maxhp is' + maxHP + 'heart bucket is ' + heartBucket);
+    var heartBucket = yourHP;
+    // console.log('success');
+
+    yourHP = maxHP;
+
+    console.log('yourhp is ' + yourHP +'and your maxhp is' + maxHP + 'heart bucket is ' + heartBucket);
 
     maxhpset();
 
     while (yourHP > heartBucket){
+        console.log('success');
         yourHP--;
         hearts(yourHP);
 
     }
+} else {
+    maxhpset();
 }
 
 // If the user has more points than the currently stored high score then
@@ -34,29 +46,15 @@ if (yourHP < maxHP){
 // console.log(localStorage.getItem('highScore'));
 
 
-var konamiCount = 0;
-var konami = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'];
-
-$(document).keyup(function (event) {
-    if (event.key === konami[konamiCount] && konamiCount + 1 === konami.length || event.key !== konami[konamiCount]) {
-        if (konamiCount + 1 === konami.length){
-            yourHP=10;
-            maxHP = 10;
-            maxhpset();
-        }
-        konamiCount = 0;
-    } else {
-        konamiCount++;
-    }
-});
 
 
-// function heartEnd() {
-//     localStorage.setItem('yourHP', yourHP);
-//     localStorage.setItem('maxHP', maxHP);
-//     console.log(localStorage.getItem('yourHP') + 'your hp');
-//     console.log(localStorage.getItem('maxHP') + 'your max');
-// }
+
+function heartEnd() {
+    localStorage.setItem('yourHP', yourHP);
+    localStorage.setItem('maxHP', maxHP);
+    console.log(localStorage.getItem('yourHP') + 'your hp');
+    console.log(localStorage.getItem('maxHP') + 'your max');
+}
 
 
 function hearts(hp) {
@@ -99,6 +97,7 @@ switch (hp) {
 }
 
 function maxhpset() {
+    console.log('hi from max hp');
     if (maxHP == 10){
         $('#heart1').attr('src', 'img/hearts-3.png.png');
         $('#heart2').attr('src', 'img/hearts-3.png.png');

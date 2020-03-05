@@ -2,60 +2,39 @@ var dragPos = 0;
 var stabCounter = 0;
 var charge = new Audio("sound/Spaceship_Takeoff-Richard-902554369.mp3");
 var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
-var swoosh = new Audio("sound/Swoosh 1-SoundBible.com-231145780.mp3");
+var blast1 = new Audio("sound/ballsound.mp3");
+var blast2 = new Audio("sound/ballsound.mp3");
+var blast3 = new Audio("sound/ballsound.mp3");
+
+var swoosh = new Audio("sound/Swoosh 3-SoundBible.com-1573211927.mp3");
 var ballBl = new Audio("sound/Explosion+3.mp3");
+var slice = new Audio("sound/Decapitation-SoundBible.com-800292304.mp3");
+var swordStart = 0;
+var vuln = 0;
+var rando = 1;
 // var yourHP = 6;
 ballPos = 0;
 
-maxhpset();
+konamiCount = 0;
+konami = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'];
 
-function balls() {
-    var theFire2 = document.getElementById("bigDragon");
-    console.log('hi  from balls');
-    theFire2.setAttribute("src", "img/dark head 2.gif");
-    theFire2.setAttribute("class", "bigDragonhead");
-
-    // fireballstart();
-    // fireballstart2();
-    // fireballstart3();
-    // setTimeout( function (){
-    //     fireballstart4();
-    //     fireballstart5();
-    //     fireballstart6();
-    // }, 1000);
-
-
-    var it = 0;
-    setInterval(function () {
-        it++;
-        switch (it) {
-            case 1:
-                fireballstart();
-                break;
-            case 2:
-                fireballstart3();
-                break;
-            case 3:
-                fireballstart2();
-
-                break;
-            case 4:
-                fireballstart4();
-                break;
-            case 5:
-                fireballstart6();
-
-                break;
-            case 6:
-                fireballstart5();
-
-                break;
-
+$(document).keyup(function (event) {
+    if (event.key === konami[konamiCount] && konamiCount + 1 === konami.length || event.key !== konami[konamiCount]) {
+        if (konamiCount + 1 === konami.length){
+            yourHP=10;
+            maxHP = 10;
+            heartEnd();
+            maxhpset();
         }
-    }, 500);
+        konamiCount = 0;
+    } else {
+        konamiCount++;
+    }
+});
+
+// maxhpset();
 
 
-}
 
 document.getElementById('startBut').addEventListener('click', next);
 
@@ -157,7 +136,7 @@ function start(num) {
             charge.currentTime = .3;
         }, 2100);
 
-        theFire2.setAttribute("src", "img/blast 1 final.gif");
+        theFire2.setAttribute("src", "img/head7.gif");
 
         // dragPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
         dragPos = yourPos;
@@ -188,7 +167,7 @@ function start(num) {
         blastCounter++;
 
 
-        if (blastCounter >= 5){
+        if (blastCounter >= 4){
             charge.pause();
             charge.currentTime = 0;
             blastCounter = 0;
@@ -206,15 +185,76 @@ function start(num) {
 
     }
 
+
+    function balls() {
+        charge.pause();
+        charge.currentTime = 0;
+        charge.play();
+        setTimeout(function () {
+            console.log('sword attack called');
+            swordAttack();
+        }, 8000);
+        var theFire2 = document.getElementById("bigDragon");
+        console.log('hi  from balls');
+        theFire2.setAttribute("src", "img/dark head 2.gif");
+        theFire2.setAttribute("class", "bigDragonhead");
+
+        // fireballstart();
+        // fireballstart2();
+        // fireballstart3();
+        // setTimeout( function (){
+        //     fireballstart4();
+        //     fireballstart5();
+        //     fireballstart6();
+        // }, 1000);
+
+
+        var it = 0;
+        setInterval(function () {
+            it++;
+            switch (it) {
+                case 1:
+                    fireballstart();
+                    break;
+                case 2:
+                    fireballstart3();
+                    break;
+                case 3:
+                    fireballstart2();
+
+                    break;
+                case 4:
+                    fireballstart4();
+                    break;
+                case 5:
+                    fireballstart6();
+
+                    break;
+                case 6:
+                    fireballstart5();
+
+                    break;
+
+
+
+
+            }
+        }, 500);
+
+
+    }
+
     function swordAttack() {
         var hitPos;
+        swordStart = 1;
 
 
         stabCounter++;
 
         hitPos = Math.floor(Math.random() * (3 - 0 + 0) + 0);
 
-        if (stabCounter === 10 || stabCounter === 1) {
+        if (stabCounter === 7) {
+            vuln = 1;
             theFire2.setAttribute('src', 'img/dragon stab long.gif');
             // stabCounter = 0;
         } else {
@@ -235,17 +275,41 @@ function start(num) {
             theFire2.setAttribute('class', 'dstrike2');
         }
 
-        if (stabCounter === 10 || stabCounter === 1) {
+        if (stabCounter === 7) {
             // theFire2.setAttribute('src', 'img/dragon stab long.gif');
             // console.log('stab counter ten to pizza fire');
-            if (stabCounter === 10){
+            if (stabCounter === 7){
+
+                setTimeout(function () {
+
+                    if (dragPos == yourPos) {
+                        // slice.pause();
+                        slice.currentTime = 0;
+                        slice.play();
+                        yourHP--;
+                        hearts(yourHP);
+                        vuln = 0;
+                    } else {
+                        // swoosh.pause();
+                        swoosh.currentTime = 0;
+                        swoosh.play();
+                        vuln = 0;
+                    }
+                }, 875);
 
             stabCounter = 0;
             setTimeout(function () {
 
 
                 // pizzaFire2();
-                balls();
+                swordStart = 0;
+                rando++;
+                if (rando % 2 === 0){
+                    balls();
+                } else {
+                    thisRandom2();
+                }
+
             }, 1800);
             }
 
@@ -253,9 +317,8 @@ function start(num) {
 
 
             setTimeout(function () {
-                swoosh.pause();
-                swoosh.currentTime = 0;
-                swoosh.play();
+
+
                 if (dragPos == yourPos) {
                     yourHP--;
                     hearts(yourHP);
@@ -270,12 +333,17 @@ function start(num) {
 
         } else {
             setTimeout(function () {
-                swoosh.pause();
-                swoosh.currentTime = 0;
-                swoosh.play();
+
                 if (dragPos == yourPos) {
+                    slice.pause();
+                    slice.currentTime = 0;
+                    slice.play();
                     yourHP--;
                     hearts(yourHP);
+                } else {
+                    swoosh.pause();
+                    swoosh.currentTime = 0;
+                    swoosh.play();
                 }
             }, 480);
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
@@ -338,7 +406,9 @@ function fireballstart() {
                 ex3();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
                 clearInterval(fireHitVar2);
 
             }
@@ -410,7 +480,9 @@ function fireballstart2() {
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
                 clearInterval(fireHitVar2);
 
             }
@@ -482,7 +554,9 @@ function fireballstart3() {
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
                 clearInterval(fireHitVar2);
 
             }
@@ -555,7 +629,9 @@ function fireballstart4() {
 
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
                 clearInterval(fireHitVar2);
 
             }
@@ -627,7 +703,9 @@ function fireballstart5() {
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
                 clearInterval(fireHitVar2);
 
             }
@@ -700,7 +778,10 @@ function fireballstart6() {
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                thisRandom2();
+                if (swordStart === 0){
+                    thisRandom2();
+                }
+
                 clearInterval(fireHitVar2);
 
             }
@@ -732,7 +813,9 @@ function fireballstart6() {
 }
 
 function ex1() {
-
+    blast1.pause();
+    blast1.currentTime = 0;
+    blast1.play();
 $('#exp1').attr('class', 'exp');
     setTimeout(function () {
         $('#exp1').attr('class', 'expHide');
@@ -740,7 +823,9 @@ $('#exp1').attr('class', 'exp');
 }
 
 function ex2() {
-
+    blast2.pause();
+    blast2.currentTime = 0;
+    blast2.play();
     $('#exp2').attr('class', 'exp');
     setTimeout(function () {
         $('#exp2').attr('class', 'expHide');
@@ -748,6 +833,9 @@ function ex2() {
 }
 
 function ex3() {
+    blast3.pause();
+    blast3.currentTime = 0;
+    blast3.play();
 
     $('#exp3').attr('class', 'exp');
     setTimeout(function () {

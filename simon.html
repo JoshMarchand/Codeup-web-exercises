@@ -70,10 +70,37 @@
 
         }
 
+        .heartDiv{
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            position: absolute;
+        }
+
+        .heart {
+            z-index: 21;
+            max-height: 50px;
+            max-width: 50px;
+            height: auto;
+            width: auto;
+            margin-left:2px;
+            margin-top: 2px;
+
+        }
+
 
     </style>
 </head>
 <body>
+<div class="heartDiv">
+    <img src="" id="heart1" class="heart">
+    <img src="" id="heart2" class="heart">
+    <img src="" id="heart3" class="heart">
+    <img src="" id="heart4" class="heart">
+    <img src="" id="heart5" class="heart">
+
+
+</div>
 
 
 <!------ Main container-->
@@ -91,6 +118,7 @@
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-2.2.4.js"></script>
+<script src="js/hearts.js"></script>
 <script>
 
 
@@ -126,13 +154,17 @@
             //     konamiCount++;
             // }
 
-            if (event.key === konami[konamiCount]){
+            if (event.key === konami[konamiCount]) {
+                console.log('success');
+            }
+
+            if (event.key === konami[konamiCount]) {
                 if (konamiCount + 1 === konami.length) {
 
 
                     $('#stone').attr('src', 'img/stonecomplete.png');
                     konamiCount = 0;
-                    if (pat === 1){
+                    if (pat === 1) {
                         setTimeout(function () {
                             pattern++;
                             $('#stone').attr('src', 'img/swordinstone.png');
@@ -140,14 +172,14 @@
                             pattern2();
                         }, 2000);
 
-                    } else if (pat === 2){
+                    } else if (pat === 2) {
                         setTimeout(function () {
                             pattern++;
                             $('#stone').attr('src', 'img/swordinstone.png');
                             $(document).unbind();
                             pattern3();
                         }, 2000);
-                    } else if (pat === 3){
+                    } else if (pat === 3) {
                         $(document).unbind();
                         console.log('done');
                     }
@@ -163,36 +195,42 @@
                     }
                     konamiCount++;
                 }
-            } else {
-                $('#stone').attr('src', 'img/swordinstone.png');
-                konamiCount = 0;
-                if (pat === 1){
+                } else {
+                    console.log(pat);
                     $('#stone').attr('src', 'img/swordinstone.png');
-                    $(document).unbind();
-                    setTimeout(function () {
-                        pattern1();
-                    }, 1000);
+                    konamiCount = 0;
+                $(document).unbind();
+                    console.log(event.key);
+                    console.log(konami[konamiCount]);
+                    if (pat === 1){
+                        yourHP--;
+                        hearts(yourHP);
+                        $('#stone').attr('src', 'img/swordinstone.png');
+                        $(document).unbind();
+                        setTimeout(function () {
+                            pattern1();
+                        }, 1000);
 
-                } else if (pat === 2){
-                    $('#stone').attr('src', 'img/swordinstone.png');
-                    $(document).unbind();
-                    setTimeout(function () {
+                    } else if (pat === 2){
+                        yourHP--;
+                        hearts(yourHP);
+                        $('#stone').attr('src', 'img/swordinstone.png');
+                        $(document).unbind();
+                        setTimeout(function () {
 
-                        pattern2();
-                    }, 1000);
-                } else if (pat === 3){
-                    $('#stone').attr('src', 'img/swordinstone.png');
-                    $(document).unbind();
-                    setTimeout(function () {
+                            pattern2();
+                        }, 1000);
+                    } else if (pat === 3){
+                        yourHP--;
+                        hearts(yourHP);
+                        $('#stone').attr('src', 'img/swordinstone.png');
+                        $(document).unbind();
+                        setTimeout(function () {
 
-                        pattern3();
-                    }, 1000);
-                }
+                            pattern3();
+                        }, 1000);
+                    }
             }
-
-
-
-
         });
     }
 
