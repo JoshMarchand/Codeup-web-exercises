@@ -22,20 +22,20 @@ var chargeOn = 0;
 // var yourHP = 6;
 ballPos = 0;
 
-konamiCount = 0;
-konami = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'];
+var dkonamiCount = 0;
+var dkonami = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'];
 
 $(document).keyup(function (event) {
-    if (event.key === konami[konamiCount] && konamiCount + 1 === konami.length || event.key !== konami[konamiCount]) {
-        if (konamiCount + 1 === konami.length){
+    if (event.key === dkonami[dkonamiCount] && dkonamiCount + 1 === dkonami.length || event.key !== dkonami[dkonamiCount]) {
+        if (dkonamiCount + 1 === dkonami.length){
             yourHP=10;
             maxHP = 10;
             heartEnd();
             maxhpset();
         }
-        konamiCount = 0;
+        dkonamiCount = 0;
     } else {
-        konamiCount++;
+        dkonamiCount++;
     }
 });
 
@@ -460,15 +460,17 @@ function fireballstart() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 1) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0) {
+                    if (yourPos == 1) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex3();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -534,15 +536,17 @@ function fireballstart2() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 2) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0) {
+                    if (yourPos == 2) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -608,15 +612,17 @@ function fireballstart3() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 0) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0) {
+                    if (yourPos == 0) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -682,16 +688,18 @@ function fireballstart4() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 1) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0) {
+                    if (yourPos == 1) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex3();
 
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -757,15 +765,17 @@ function fireballstart5() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 2) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0) {
+                    if (yourPos == 2) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -832,15 +842,18 @@ function fireballstart6() {
             if (fireballTimer2 == 0) {
 
                 theFire2.setAttribute("class", "fireballhide");
-                if (yourPos == 0) {
-                    yourHP--;
-                    hearts(yourHP);
+                if (dragDead ===0){
+
+                    if (yourPos == 0) {
+                        yourHP--;
+                        hearts(yourHP);
+                    }
                 }
 
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0 || phase >=2 || dragDead === 1){
+                if ((swordStart === 0 || phase >=2) && dragDead === 0){
                     thisRandom2();
                 }
 

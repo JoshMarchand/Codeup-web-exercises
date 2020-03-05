@@ -47,7 +47,12 @@ if (yourHP  < maxHP ){
 
 
 
-
+function heartGet() {
+    maxHP = parseInt(localStorage.getItem('maxHP'));
+    yourHP = parseInt(localStorage.getItem('yourHP'));
+    maxHP();
+    hearts(yourHP);
+}
 
 function heartEnd() {
     localStorage.setItem('yourHP', yourHP);
