@@ -52,12 +52,52 @@
         /*    }*/
         /*}*/
 
-        #stone {
+        .stone {
             /*position: absolute;*/
             z-index: 20;
             /*display: inline-block;*/
             left: -12em;
-            top: -7em;
+            top: -17em;
+            align-self: center;
+            position: relative;
+        }
+
+        .stone2 {
+            /*position: absolute;*/
+            z-index: 20;
+            /*display: inline-block;*/
+            left: -5em;
+            top: -17em;
+            align-self: center;
+            position: relative;
+        }
+
+        .stone2 {
+            /*position: absolute;*/
+            z-index: 20;
+            /*display: inline-block;*/
+            left: -5em;
+            top: -17em;
+            align-self: center;
+            position: relative;
+        }
+
+        .stone3 {
+            /*position: absolute;*/
+            z-index: 20;
+            /*display: inline-block;*/
+            left: -15em;
+            top: -10em;
+            align-self: center;
+            position: relative;
+        }
+
+        #glow {
+            /*position: absolute;*/
+            z-index: 20;
+            /*display: inline-block;*/
+            left: -12em;
+            top: -17em;
             align-self: center;
             position: relative;
         }
@@ -108,19 +148,28 @@
      id="mainContainer">
     <!--    <h1 class="position-absolute">Lovelace</h1>-->
     <div id="stoneDiv">
-        <img src="img/swordinstone.png" alt="" id="stone">
+        <img src="img/swordinstone.png" alt="" id="stone" class="stone">
+<!--        <img src="img/glow.gif" alt="" id="glow">-->
     </div>
 
     <img src="img/background-10.png" alt="" id="background-image" class="m-0 p-0 h-100 w-100">
     <!--    <a class="nes-btn mx-auto px-3 position-absolute" href="lead-in-page.html">Start</a>-->
+    <div class="row" id="text">
+        <div class="col-12 w-100 bg-secondary" style="height: 150px">
+            <p class="text-wrap" id="body_text"></p>
+        </div>
+    </div>
 </div>
+
 
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/hearts.js"></script>
 <script>
+    var maintrack = new Audio("sound/Power - AShamaluevMusic.mp3");
 
+    var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 
     //
     var ping = new Audio("sound/pin_dropping-Brian_Rocca-2084700791.mp3");
@@ -142,10 +191,26 @@
     var konamiCount = 0;
     var pattern = 1;
 
+    function final() {
+        $('#stone').attr('src', '');
+        $('#stone').removeClass('stone').addClass('stone2');
+        $('#stone').attr('src', 'img/glow.gif');
+        blast.play();
+        $('#stone').click(function () {
+            maintrack.play();
+            $('#stone').attr('src', '');
+            $('#stone').attr('src', 'img/headstart.gif');
+            $('#stone').removeClass('stone2').addClass('stone3');
+
+        });
+
+    }
+
     function code(pat) {
         console.log('hi from code' + pat);
 
         $(document).keyup(function (event) {
+
 
             // if (event.key === konami[konamiCount] && konamiCount + 1 === konami.length || event.key !== konami[konamiCount]) {
             //     konamiCount + 1 === konami.length ? $('#pic').attr('src', 'img/bazooka.jpg') : false;
@@ -182,6 +247,7 @@
                     } else if (pat === 3) {
                         $(document).unbind();
                         console.log('done');
+                        final();
                     }
                 } else {
                     if (event.key === 'ArrowUp') {

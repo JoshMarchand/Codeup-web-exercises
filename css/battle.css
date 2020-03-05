@@ -326,9 +326,16 @@ left:-15px;
 
      position: relative;
      user-select: none;
-     z-index: 1;
+     z-index: 35;
 
  }
+
+.dead{
+    top: 50px;
+    left: -225px;
+    z-index: 50;
+    position: relative;
+}
 
 .bigDragonC1 {
     top: -45px;
@@ -379,7 +386,16 @@ left:-15px;
     top: -40px;
     left: -30px;
 }
-
+.portal {
+    top: -100px;
+    left: -135px;
+    position: relative;
+    user-select: none;
+    z-index: 1;
+}
+.portalHide {
+    display: none;
+}
 
 
 #bigDragonBlast {

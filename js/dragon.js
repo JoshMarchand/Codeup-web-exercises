@@ -5,13 +5,20 @@ var blast = new Audio("sound/Grenade-SoundBible.com-2124844747.mp3");
 var blast1 = new Audio("sound/ballsound.mp3");
 var blast2 = new Audio("sound/ballsound.mp3");
 var blast3 = new Audio("sound/ballsound.mp3");
-
+blast1.volume = .5;
+blast2.volume = .5;
+blast3.volume = .5;
+var bdelay = 0;
+var bdelay2 = 0;
+var bdelay3 = 4000;
 var swoosh = new Audio("sound/Swoosh 3-SoundBible.com-1573211927.mp3");
 var ballBl = new Audio("sound/Explosion+3.mp3");
 var slice = new Audio("sound/Decapitation-SoundBible.com-800292304.mp3");
 var swordStart = 0;
 var vuln = 0;
 var rando = 1;
+var phase = 1;
+var chargeOn = 0;
 // var yourHP = 6;
 ballPos = 0;
 
@@ -39,7 +46,12 @@ $(document).keyup(function (event) {
 document.getElementById('startBut').addEventListener('click', next);
 
 function next() {
-start(1);
+    $('#deadDrag').attr('src', 'img/daedfinal.gif');
+    setTimeout(function () {
+
+        start(1);
+    }, 2000);
+
 //     balls();
 }
 
@@ -82,7 +94,7 @@ function start(num) {
                 blast.currentTime = 0;
                 blast.play();
                 if (dragPos == yourPos) {
-                    yourHP -=2;
+                    yourHP--;
                     hearts(yourHP);
                 }
                 console.log(dragPos + 'dragpos');
@@ -111,7 +123,8 @@ function start(num) {
                 fireballTimer2 = 4;
                 console.log(yourHP);
 
-                thisRandom2();
+                    thisRandom2();
+
                 clearInterval(fireHitVar2);
 
             }
@@ -128,7 +141,12 @@ function start(num) {
 
     function thisRandom2() {
 
-        charge.play();
+        chargeOn = 1;
+
+
+            charge.play();
+
+
 
 
         setTimeout(function () {
@@ -171,11 +189,16 @@ function start(num) {
             charge.pause();
             charge.currentTime = 0;
             blastCounter = 0;
-            swordAttack();
+            chargeOn = 0;
+            if (dragDead != 1) {
+                swordAttack();
+            }
         } else {
             setTimeout(function () {
-
-                pizzaFire2();
+                chargeOn = 0;
+                if (dragDead != 1){
+                    pizzaFire2();
+                }
 
             }, 2000);
         }
@@ -192,12 +215,17 @@ function start(num) {
         charge.play();
         setTimeout(function () {
             console.log('sword attack called');
+if (phase <2){
+    $('#portal').attr('src', '');
+}
+
             swordAttack();
         }, 8000);
         var theFire2 = document.getElementById("bigDragon");
         console.log('hi  from balls');
-        theFire2.setAttribute("src", "img/dark head 2.gif");
-        theFire2.setAttribute("class", "bigDragonhead");
+        theFire2.setAttribute("class", "portalHide");
+        // theFire2.setAttribute("class", "portal");
+        $('#portal').attr('src', 'img/portal.png');
 
         // fireballstart();
         // fireballstart2();
@@ -210,36 +238,39 @@ function start(num) {
 
 
         var it = 0;
-        setInterval(function () {
-            it++;
-            switch (it) {
-                case 1:
-                    fireballstart();
-                    break;
-                case 2:
-                    fireballstart3();
-                    break;
-                case 3:
-                    fireballstart2();
+        if (phase < 3){
+            setInterval(function () {
+                it++;
+                switch (it) {
+                    case 1:
+                        fireballstart();
+                        break;
+                    case 2:
+                        fireballstart3();
+                        break;
+                    case 3:
+                        fireballstart2();
 
-                    break;
-                case 4:
-                    fireballstart4();
-                    break;
-                case 5:
-                    fireballstart6();
+                        break;
+                    case 4:
+                        fireballstart4();
+                        break;
+                    case 5:
+                        fireballstart6();
 
-                    break;
-                case 6:
-                    fireballstart5();
+                        break;
+                    case 6:
+                        fireballstart5();
 
-                    break;
-
-
+                        break;
 
 
-            }
-        }, 500);
+
+
+                }
+            }, 500);
+        }
+
 
 
     }
@@ -279,21 +310,24 @@ function start(num) {
             // theFire2.setAttribute('src', 'img/dragon stab long.gif');
             // console.log('stab counter ten to pizza fire');
             if (stabCounter === 7){
+                phase++;
 
                 setTimeout(function () {
+                    if (dragDead != 1){
 
-                    if (dragPos == yourPos) {
-                        // slice.pause();
-                        slice.currentTime = 0;
-                        slice.play();
-                        yourHP--;
-                        hearts(yourHP);
-                        vuln = 0;
-                    } else {
-                        // swoosh.pause();
-                        swoosh.currentTime = 0;
-                        swoosh.play();
-                        vuln = 0;
+                        if (dragPos == yourPos) {
+                            // slice.pause();
+                            slice.currentTime = 0;
+                            slice.play();
+                            yourHP--;
+                            hearts(yourHP);
+                            vuln = 0;
+                        } else {
+                            // swoosh.pause();
+                            swoosh.currentTime = 0;
+                            swoosh.play();
+                            vuln = 0;
+                        }
                     }
                 }, 875);
 
@@ -304,11 +338,30 @@ function start(num) {
                 // pizzaFire2();
                 swordStart = 0;
                 rando++;
-                if (rando % 2 === 0){
-                    balls();
+                if (phase < 3){
+                    if (rando % 2 === 0){
+                        if (dragDead != 1){
+
+                            balls();
+                        }
+                    } else {
+                        if (dragDead != 1){
+
+                            thisRandom2();
+                        }
+                        phase++;
+                    }
                 } else {
-                    thisRandom2();
+
+                    if (dragDead != 1){
+
+                        thisRandom2();
+                    }
                 }
+
+                // if (phase > 2){
+                //     swordAttack();
+                // }
 
             }, 1800);
             }
@@ -327,29 +380,37 @@ function start(num) {
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
             setTimeout(function () {
                 // console.log('stab counter ten to sword atrtack');
-                swordAttack();
+                if (dragDead != 1){
+
+                    swordAttack();
+                }
             }, 1800);
             }
 
         } else {
             setTimeout(function () {
+                if (dragDead != 1){
 
-                if (dragPos == yourPos) {
-                    slice.pause();
-                    slice.currentTime = 0;
-                    slice.play();
-                    yourHP--;
-                    hearts(yourHP);
-                } else {
-                    swoosh.pause();
-                    swoosh.currentTime = 0;
-                    swoosh.play();
+                    if (dragPos == yourPos) {
+                        slice.pause();
+                        slice.currentTime = 0;
+                        slice.play();
+                        yourHP--;
+                        hearts(yourHP);
+                    } else {
+                        swoosh.pause();
+                        swoosh.currentTime = 0;
+                        swoosh.play();
+                    }
                 }
             }, 480);
             // theFire2.setAttribute('src', 'img/dragon stab.gif');
             setTimeout(function () {
                 // console.log('stab counter ten to sword atrtack');
-                swordAttack();
+                if (dragDead != 1){
+
+                    swordAttack();
+                }
             }, 750);
         }
 
@@ -383,6 +444,7 @@ function fireballstart() {
 
 
     var pizzaFire2 = function (event) {
+
         var landed2 = 1;
         ballPos = 1;
         document.getElementById('fireball').addEventListener('click', hideDB2, false);
@@ -406,7 +468,7 @@ function fireballstart() {
                 ex3();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -428,7 +490,7 @@ function fireballstart() {
         console.log('hi from js this random2');
 
 
-        var delay2 = Math.floor(Math.random() * (500 - 500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 - bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();
@@ -480,7 +542,7 @@ function fireballstart2() {
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -502,7 +564,7 @@ function fireballstart2() {
         console.log('hi from js this random2');
 
 
-        var delay2 = Math.floor(Math.random() * (500 - 500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 - bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();
@@ -554,7 +616,7 @@ function fireballstart3() {
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -576,7 +638,7 @@ function fireballstart3() {
         console.log('hi from js this random2');
 
 
-        var delay2 = Math.floor(Math.random() * (500 - 500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 - bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();
@@ -629,7 +691,7 @@ function fireballstart4() {
 
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -651,7 +713,7 @@ function fireballstart4() {
         console.log('hi from js this random2');
 
 
-        var delay2 = Math.floor(Math.random() * (500 - 500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 - bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();
@@ -703,7 +765,7 @@ function fireballstart5() {
                 ex2();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
                 clearInterval(fireHitVar2);
@@ -725,7 +787,7 @@ function fireballstart5() {
         console.log('hi from js this random2');
 
 
-        var delay2 = Math.floor(Math.random() * (500 - 500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 - bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();
@@ -778,7 +840,7 @@ function fireballstart6() {
                 ex1();
                 fireballTimer2 = 6;
                 console.log(yourHP);
-                if (swordStart === 0){
+                if (swordStart === 0 || phase >=2 || dragDead === 1){
                     thisRandom2();
                 }
 
@@ -802,7 +864,7 @@ function fireballstart6() {
 
 
         // var delay2 = Math.floor(Math.random() * (5000 - 2000 + 1) + 2000);
-        var delay2 = Math.floor(Math.random() * (500 -500 + 1) + 500);
+        var delay2 = Math.floor(Math.random() * (bdelay3 -bdelay2 + 1) + bdelay);
 
         setTimeout(function () {
             pizzaFire2();

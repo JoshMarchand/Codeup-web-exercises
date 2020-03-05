@@ -13,6 +13,7 @@
 // //         top: rect.top + window.scrollY
 // //     };
 // // }
+var dragDead = 0;
 var strikeOn = 0;
 var spacePressed = 0;
 var theKey;
@@ -24,7 +25,7 @@ var snd = new Audio("sound/rage_of_blades-Blaga_Saun-1763516257.mp3");
 var roar = new Audio("sound/Monster Growl-SoundBible.com-344645592.mp3");
 var maintrack = new Audio("sound/Chase - AShamaluevMusic.mp3");
 var parry = new Audio("sound/Swords_Collide-Sound_Explorer-2015600826.mp3");
-var dragonHP = 5;
+var dragonHP = 4;
 var bodyCurs = document.getElementsByTagName('body');
 var meBob = document.getElementById('bob');
 console.log(typeof meBob);
@@ -39,6 +40,25 @@ document.getElementById('bigDragon').setAttribute('draggable', false);
 document.getElementById('startBut').addEventListener('click', adds);
 
 
+function dragonHit() {
+    if (dragonHP === 2){
+        bdelay3 = 700;
+    }
+
+if (dragonHP <= 0){
+
+    dragDead = 1;
+    $('document').unbind();
+    roar.play();
+    $('#portal').attr('src', '');
+    $('#bigDragon').attr('src', '');
+    $('#deadDrag').attr('src', 'img/daedfinal.gif');
+    $('.heart').attr('src', '');
+    yourHP = 10;
+    maintrack.pause();
+
+}
+}
 
 function adds() {
 
@@ -69,6 +89,8 @@ function adds() {
                 snd.play();
                 roar.currentTime = 0;
                 roar.play();
+                dragonHP--;
+                dragonHit();
             } else if (swordStart === 1 && yourPos === dragPos){
                 parry.currentTime = 0;
                 parry.play();
