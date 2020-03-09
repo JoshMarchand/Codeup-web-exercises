@@ -6,6 +6,8 @@ var map = new mapboxgl.Map({
     center: [-98.4916, 29.4252]
 });
 
+// comment
+
 var markerOptions = {
     color: '#ff0000',
     draggable: true
