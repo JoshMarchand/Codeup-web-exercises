@@ -4,7 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -12,39 +13,183 @@
     <title>Weather Map</title>
 
     <style>
-
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 350px;
+        }
     </style>
 </head>
 <body>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
 
 <!--weather-->
 <div class="container">
     <div class="row">
-        <div class="weather1 col-4 d-flex justify-content-center"></div>
-        <div class="weather2 col-4 d-flex justify-content-center">
+        <div class="weather1 col-4 d-flex justify-content-center mt-2"></div>
+        <div class="weather2 col-4 d-flex justify-content-center mt-2">
         </div>
-        <div class="weather3 col-4 d-flex justify-content-center"></div>
+        <div class="weather3 col-4 d-flex justify-content-center mt-2"></div>
     </div>
+
+
+    <div class="input-group w-100 mt-2 mb-2 ml-auto mr-auto">
+        <div class="input-group-prepend">
+            <button type="button" id="latlong" class="btn btn-secondary">Update</button>
+        </div>
+        <input type="text" aria-label="Longitude" id="city" class="form-control" placeholder="City">
+        <input type="text" aria-label="Latitude" id="lat1" class="form-control" placeholder="Latitude">
+        <input type="text" aria-label="Longitude" id="long1" class="form-control" placeholder="Longitude">
+
+    </div>
+
+    <div id='map' class="m-auto"></div>
 </div>
 <!--weather end-->
 
-<script src="js/jquery-2.2.4.js"></script>
+
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<!--<div id="map"></div>-->
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
 <!-- Optional JavaScript -->
 <script>
 
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        zoom: 15,
+        center: [-98.4916, 29.4260]
+    });
+
+    geocode("San Antonio, TX 78205", mapboxgl.accessToken).then(function(result) {
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(5);
+    });
+
+    var markerOptions = {
+        color: '#ff0000',
+        draggable: true
+    };
 
 
-    function updateWeather() {
-        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/37.8267,-122.4233").done(function (data) {
+
+    var thaiVegan = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.4916, 29.4260])
+        //     .setPopup(popup)
+        // popup.addTo(map)
+        .addTo(map);
+
+
+
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
+
+
+    $('#latlong').click(function () {
+        if ($('#city').val()){
+            geocode($('#city').val(), mapboxgl.accessToken).then(function(result) {
+                console.log(result);
+                map.setCenter(result);
+                map.setZoom(10);
+                updateWeather(result[1], result[0]);
+            });
+        } else if (parseFloat($('#lat1').val()) && parseFloat($('#long1').val())) {
+                updateWeather(parseFloat($('#lat1').val()), parseFloat($('#long1').val()))
+            } else {
+
+        }
+
+        }
+    );
+
+    var iconArr = [
+        {
+            condition: 'clear-day',
+            url: 'icon/clear-day.png'
+        },
+        {
+            condition: 'clear-night',
+            url: 'icon/clear-night.png'
+        },
+        {
+            condition: 'rain',
+            url: 'icon/rain.png'
+        },
+        {
+            condition: 'snow',
+            url: 'icon/snow.png'
+        },
+        {
+            condition: 'sleet',
+            url: 'icon/sleet.png'
+        },
+        {
+            condition: 'wind',
+            url: 'icon/wind.png'
+        },
+        {
+            condition: 'fog',
+            url: 'icon/fog.png'
+        },
+        {
+            condition: 'cloudy',
+            url: 'icon/cloudy.png'
+        },
+        {
+            condition: 'partly-cloudy-day',
+            url: 'icon/partly-cloudy-day.png'
+        },
+        {
+            condition: 'partly-cloudy-night',
+            url: 'icon/partly-cloudy-night.png'
+        },
+    ];
+
+
+    function updateWeather(lat, long) {
+        console.log('success');
+
+        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lat + ',' + long).done(function (data) {
+            function getIcon(num) {
+                var iconUrl;
+                iconArr.forEach(function (element) {
+                    // console.log(element.condition);
+                    // console.log(data.daily.data["0"].icon);
+                    if (element.condition === data.daily.data[num].icon) {
+                        iconUrl = element.url;
+                    }
+                });
+                return iconUrl;
+            }
+
             console.log(data);
             console.log(new Date(data.currently.time * 1000));
 
             $('.weather1').html('<div class="card text-center" style="width: 100%;">\n' +
-
                 '  <div class="card-body">\n' +
                 '    <h1 class="card-text">' + data.daily.data[0].temperatureHigh + '/' + data.daily.data[0].temperatureLow + '</h1>\n' +
-                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '  <img src="' + getIcon(0) + '" class="card-img-top mb-2" style="max-width: 50px; max-height: 50px; border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: #c1c1c1" alt="...">\n' +
                 '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[0].summary + '</p>\n' +
                 '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[0].humidity + '</p>\n' +
                 '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["0"].windSpeed + '</p>\n' +
@@ -52,12 +197,10 @@
                 '  </div>\n' +
                 '</div>')
 
-
             $('.weather2').html('<div class="card text-center" style="width: 100%;">\n' +
-
                 '  <div class="card-body">\n' +
                 '    <h1 class="card-text">' + data.daily.data[1].temperatureHigh + '/' + data.daily.data[1].temperatureLow + '</h1>\n' +
-                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '  <img src="' + getIcon(1) + '" class="card-img-top mb-2 bg-light" style="max-width: 50px; max-height: 50px; border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" alt="...">\n' +
                 '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[1].summary + '</p>\n' +
                 '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[1].humidity + '</p>\n' +
                 '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["1"].windSpeed + '</p>\n' +
@@ -65,12 +208,10 @@
                 '  </div>\n' +
                 '</div>')
 
-
             $('.weather3').html('<div class="card text-center" style="width: 100%;">\n' +
-
                 '  <div class="card-body">\n' +
                 '    <h1 class="card-text">' + data.daily.data[2].temperatureHigh + '/' + data.daily.data[2].temperatureLow + '</h1>\n' +
-                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '  <img src="' + getIcon(2) + '" class="card-img-top mb-2" style="max-width: 50px; max-height: 50px; border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" alt="...">\n' +
                 '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[2].summary + '</p>\n' +
                 '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[2].humidity + '</p>\n' +
                 '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["2"].windSpeed + '</p>\n' +
@@ -80,12 +221,13 @@
         })
     }
 
-    updateWeather();
+    updateWeather(29.4260, -98.4916);
 
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
