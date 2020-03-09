@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Weather Map</title>
 
     <style>
 
@@ -17,27 +17,72 @@
 </head>
 <body>
 
+<!--weather-->
+<div class="container">
+    <div class="row">
+        <div class="weather1 col-4 d-flex justify-content-center"></div>
+        <div class="weather2 col-4 d-flex justify-content-center">
+        </div>
+        <div class="weather3 col-4 d-flex justify-content-center"></div>
+    </div>
+</div>
+<!--weather end-->
 
-
-
-
-
-
-
-
-
-
-
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/keys.js"></script>
 <!-- Optional JavaScript -->
 <script>
 
 
 
+    function updateWeather() {
+        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/37.8267,-122.4233").done(function (data) {
+            console.log(data);
+            console.log(new Date(data.currently.time * 1000));
+
+            $('.weather1').html('<div class="card text-center" style="width: 100%;">\n' +
+
+                '  <div class="card-body">\n' +
+                '    <h1 class="card-text">' + data.daily.data[0].temperatureHigh + '/' + data.daily.data[0].temperatureLow + '</h1>\n' +
+                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[0].summary + '</p>\n' +
+                '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[0].humidity + '</p>\n' +
+                '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["0"].windSpeed + '</p>\n' +
+                '<p class="card-text"><strong>Pressure: </strong>' + data.daily.data["0"].pressure + '</p>\n' +
+                '  </div>\n' +
+                '</div>')
+
+
+            $('.weather2').html('<div class="card text-center" style="width: 100%;">\n' +
+
+                '  <div class="card-body">\n' +
+                '    <h1 class="card-text">' + data.daily.data[1].temperatureHigh + '/' + data.daily.data[1].temperatureLow + '</h1>\n' +
+                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[1].summary + '</p>\n' +
+                '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[1].humidity + '</p>\n' +
+                '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["1"].windSpeed + '</p>\n' +
+                '<p class="card-text"><strong>Pressure: </strong>' + data.daily.data["1"].pressure + '</p>\n' +
+                '  </div>\n' +
+                '</div>')
+
+
+            $('.weather3').html('<div class="card text-center" style="width: 100%;">\n' +
+
+                '  <div class="card-body">\n' +
+                '    <h1 class="card-text">' + data.daily.data[2].temperatureHigh + '/' + data.daily.data[2].temperatureLow + '</h1>\n' +
+                '  <img src="" class="card-img-top" style="max-width: 50px; max-height: 50px" alt="...">\n' +
+                '<p class="card-text"><strong>Clouds: </strong>' + data.daily.data[2].summary + '</p>\n' +
+                '<p class="card-text"><strong>Humidity: </strong>' + data.daily.data[2].humidity + '</p>\n' +
+                '<p class="card-text"><strong>Wind: </strong>' + data.daily.data["2"].windSpeed + '</p>\n' +
+                '<p class="card-text"><strong>Pressure: </strong>' + data.daily.data["2"].pressure + '</p>\n' +
+                '  </div>\n' +
+                '</div>')
+        })
+    }
+
+    updateWeather();
 
 </script>
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-2.2.4.js"></script>
-<script src="js/keys.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
