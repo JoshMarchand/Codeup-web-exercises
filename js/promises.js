@@ -20,7 +20,7 @@
 // };
 //
 // wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
-//comment
+//comment1
 let commit = () =>
     fetch(`https://api.github.com/users/${prompt('Username?')}/events/public`, {headers: {'Authorization': 'token  6f54f81ddd21aff7fb4ac4ef148a1f7a0f0035cc'}})
         .then(response => response.json())
