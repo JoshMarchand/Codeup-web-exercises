@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="movies">
+</div>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $('#movies').append(
+        '<p>hi</p>\n' +
+        '    <p>hi</p>\n' +
+        '    <p>hi</p>'
+    )
+
+    $('#movies > p').click(function () {
+$(this).css('background', 'grey');
+    })
+</script>
+</body>
+</html>
